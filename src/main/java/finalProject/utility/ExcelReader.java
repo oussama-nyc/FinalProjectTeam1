@@ -97,8 +97,8 @@ public class ExcelReader {
        String path = currentDir+ File.separator+"data.xlsx";
        System.out.println(path);;
 
-        // ExcelReader excelReader = new ExcelReader(path);
-       // System.out.println(excelReader.getValueForGivenHeaderAndKey("data","Parameters","loginEmailForCustomer "));
+        ExcelReader excelReader = new ExcelReader(path);
+        System.out.println(excelReader.getValueForGivenHeaderAndKey("data","Parameters","loginEmailForCustomer "));
 
 //        List<String> items = excelReader.getEntireColumnForGivenHeader("Sheet1", "id");
 //        //String items = excelReader.getValueForGivenHeaderAndKey("Sheet1", "id", "id004");
