@@ -1,11 +1,15 @@
 package com.oussama;
 
 
+import finalProject.pages.oussama.HeaderPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import finalProject.base.CommonAPI;
+import finalProject.pages.oussama.DashboardPage;
+import finalProject.pages.oussama.HomePage;
+import finalProject.pages.oussama.MyAccountPage;
 
 public class RegisterTest extends CommonAPI {
 
