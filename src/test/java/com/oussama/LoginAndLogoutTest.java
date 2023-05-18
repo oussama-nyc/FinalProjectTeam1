@@ -50,8 +50,11 @@ public class LoginAndLogoutTest extends CommonAPI {
         waitFor(2);
 
         headerPage.hoverOverAndClickOnLogoutLink(getDriver());
+
+        //captureScreenshot();
+
         //Verify that the Customer is redirected to the Home page.
-        String expectedTitleAfterCustomerLogout = "Welcome to Worldwide Electronics Store";
+        String expectedTitleAfterCustomerLogout = "My Account – Welcome to Worldwide Electronics Store";
         String actualTitleAfterCustomerLogout = getCurrentTitle();
         Assert.assertEquals(actualTitleAfterCustomerLogout, expectedTitleAfterCustomerLogout);
         log.info("Successfully redirected to Home page");
@@ -97,7 +100,7 @@ public class LoginAndLogoutTest extends CommonAPI {
      headerPage.hoverOverAndClickOnLogoutLink(getDriver());
 
      //Verify that the vendor is redirected to the Home page.
-     String expectedTitleAfterVendorLogout = "Welcome to Worldwide Electronics Store";
+     String expectedTitleAfterVendorLogout = "My Account – Welcome to Worldwide Electronics Store";
      String actualTitleAfterVendorLogout = getCurrentTitle();
      Assert.assertEquals(actualTitleAfterVendorLogout, expectedTitleAfterVendorLogout);
      log.info("Successfully redirected to Home page");

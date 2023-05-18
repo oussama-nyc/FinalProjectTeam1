@@ -33,29 +33,31 @@ public class FilterTest extends CommonAPI {
         headerPage.clickOnShopLink();
 
         // Select the price range filter option
-        scrollByAmount(0,1000);
-        shopPage.moveSliderMinPrice(15,0);
-        shopPage.moveSliderMaxPrice(-46,0);
+        shopPage.scrollToFilterSlider(getDriver());
+        waitFor(1);
+        shopPage.moveSliderMinPrice(15,0,getDriver());
+        shopPage.moveSliderMaxPrice(-46,0, getDriver());
         shopPage.clickOnFilterButton();
 
         // Verify that the products displayed on the page have been filtered according to the selected filter option
         scrollByAmount(0,400);
         shopPage.orderByPriceLowToHigh();
 
-        scrollByAmount(0,600);
+        scrollByAmount(0,500);
         String expectedAlertText = "Protection Plan for MacBook Air / 13 inch MacBook Pro";
         String actualAlertText = shopPage.getLowestProductTitleWithFilter();
         Assert.assertEquals(actualAlertText,expectedAlertText);
         log.info("The products displayed are filtered according to the price range set in the filter.");
 
         // Clear the selected filter option
-        scrollByAmount(0,400);
-        shopPage.moveSliderMinPrice(-40,0);
-        shopPage.moveSliderMaxPrice(70,0);
+        shopPage.scrollToFilterSlider(getDriver());
+        waitFor(1);
+        shopPage.moveSliderMinPrice(-40,0, getDriver());
+        shopPage.moveSliderMaxPrice(70,0, getDriver());
         shopPage.clickOnFilterButton();
 
         // Verify that the products displayed on the page have been reset to the default view
-        scrollByAmount(0,350);
+        scrollByAmount(0,400);
         shopPage.orderByPriceLowToHigh();
         String expectedAlertText1 = "Magnetic Silicone Charging Holder for Magsafe Apple IPhone 13 Pro Mac Safe Wireless Charger Dock Station Stand";
         String actualAlertText1 = shopPage.getLowestProductTitleWithOutFilter();

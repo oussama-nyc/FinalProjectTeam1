@@ -27,7 +27,6 @@ public class Utility {
 
 
 
-
     // Remove the following lines of code after you've finished encoding
     public static void main(String[] args) {
         String originalInput = "";

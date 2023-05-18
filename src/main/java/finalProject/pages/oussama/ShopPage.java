@@ -24,10 +24,10 @@ public class ShopPage extends CommonAPI {
     WebElement tabletThinEliteBookRevolve;
 
 
-    @FindBy(css = "//div[@class='price_slider ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content']//span[1]")
+    @FindBy(xpath = "//div[@class='price_slider ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content']//span[1]")
     WebElement minPrice;
 
-    @FindBy(css = "//div[@class='price_slider ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content']//span[2]")
+    @FindBy(xpath = "//div[@class='price_slider ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content']//span[2]")
     WebElement maxPrice;
 
     @FindBy(css = "button[class='button wp-element-button']")
@@ -36,11 +36,15 @@ public class ShopPage extends CommonAPI {
     @FindBy(css = "select[name='orderby']")
     WebElement orderByOption;
 
-    @FindBy(css = "li[class='product type-product post-2441 status-publish first instock product_cat-accessories product_cat-headphone-accessories has-post-thumbnail shipping-taxable purchasable product-type-simple'] div[class='product-loop-header product-item__header'] h2[class='woocommerce-loop-product__title']")
+    @FindBy(css = "li[class='product type-product post-2861 status-publish first instock product_cat-accessories-laptops-computers product_cat-laptops-computers has-post-thumbnail shipping-taxable purchasable product-type-simple'] div[class='product-loop-header product-item__header'] h2[class='woocommerce-loop-product__title']")
     WebElement lowestProductWithFilter;
 
     @FindBy(xpath = "//div[@class='product-loop-header product-item__header']//h2[@class='woocommerce-loop-product__title'][contains(text(),'Magnetic Silicone Charging Holder for Magsafe Appl')]")
     WebElement lowestProductWithOutFilter;
+
+    @FindBy(css = ".ui-slider-range.ui-corner-all.ui-widget-header")
+    WebElement filterSlider;
+
 
     //----------------------------------------------------------------------------------------------------------------
     // ****************************************( Reusable Methods )***************************************************
@@ -52,13 +56,13 @@ public class ShopPage extends CommonAPI {
         log.info("The selected product details page opened Successfully");
     }
 
-    public void moveSliderMinPrice(int x,int y) {
-        moveSlider(minPrice, x, y);
+    public void moveSliderMinPrice(int x,int y,WebDriver driver) {
+        moveSlider(minPrice, x, y, driver);
         log.info("The minimum price set successfully.");
     }
 
-    public void moveSliderMaxPrice(int x,int y) {
-        moveSlider(maxPrice, x, y);
+    public void moveSliderMaxPrice(int x,int y, WebDriver driver) {
+        moveSlider(maxPrice, x, y, driver);
         log.info("The maximum price set successfully.");
     }
 
@@ -78,9 +82,14 @@ public class ShopPage extends CommonAPI {
     }
 
     public String getLowestProductTitleWithOutFilter() {
-        String text = getElementText(lowestProductWithFilter);
+        String text = getElementText(lowestProductWithOutFilter);
         log.info("The products displayed on the shop page reset to the default view successfully.");
         return text;
+    }
+
+    public void scrollToFilterSlider(WebDriver driver) {
+        scrollToElement(filterSlider,driver);
+        log.info("successfully");
     }
 
 }
