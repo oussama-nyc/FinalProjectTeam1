@@ -2,6 +2,8 @@ package finalProject.pages.oussama;
 
 import finalProject.base.CommonAPI;
 import com.github.javafaker.Faker;
+import finalProject.utility.ConnectDB;
+import finalProject.utility.ExcelReader;
 import finalProject.utility.Utility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -9,28 +11,74 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import java.io.File;
+import java.util.List;
 
-import java.util.Properties;
 
 public class MyAccountPage extends CommonAPI {
 
     Logger log = LogManager.getLogger(MyAccountPage.class.getName());
 
 
-    public MyAccountPage(WebDriver driver){
+     public MyAccountPage(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
 
 
     //----------------------------------------------------------------------------------------------------------------
-    // ************************************************( Data )***************************************************
+    // ************************************************( Data From Excel )*******************************************************
     // ---------------------------------------------------------------------------------------------------------------
 
-    Properties prop = Utility.loadProperties();
-    String loginEmailForCustomer = Utility.decode(prop.getProperty("loginEmailForCustomer"));
-    String loginPasswordForCustomer = Utility.decode(prop.getProperty("loginPasswordForCustomer"));
-    String loginEmailForVendor = Utility.decode(prop.getProperty("loginEmailForVendor"));
-    String loginPasswordForVendor = Utility.decode(prop.getProperty("loginPasswordForVendor"));
+    String currentDir = System.getProperty("user.dir");
+    String path = currentDir+File.separator+"data"+File.separator+"oussama-data.xlsx";
+    ExcelReader excelReader = new ExcelReader(path);
+    String loginEmailForCustomer = Utility.decode(excelReader.getDataFromCell("oussama-data",0,1));
+    String loginPasswordForCustomer = Utility.decode(excelReader.getDataFromCell("oussama-data",1,1));
+    String loginEmailForVendor = Utility.decode(excelReader.getDataFromCell("oussama-data",2,1));
+    String loginPasswordForVendor = Utility.decode(excelReader.getDataFromCell("oussama-data",3,1));
+    String loginEmailForVendor2 = Utility.decode(excelReader.getDataFromCell("oussama-data",4,1));
+    String loginPasswordForVendor2 = Utility.decode(excelReader.getDataFromCell("oussama-data",5,1));
+
+    //----------------------------------------------------------------------------------------------------------------
+    // ************************************************( Data From DB )*******************************************************
+    // ---------------------------------------------------------------------------------------------------------------
+    ConnectDB connectDB = new ConnectDB();
+    List<String> customerEmail = connectDB.getTableColumnData("select * from oussama_data;","loginEmailForCustomer");
+    //String loginEmailForCustomer = Utility.decode(customerEmail.get(0));
+    List<String> customerPassword = connectDB.getTableColumnData("select * from oussama_data;","loginPasswordForCustomer");
+    //String loginPasswordForCustomer = Utility.decode(customerPassword.get(0));
+    List<String> vendorEmail = connectDB.getTableColumnData("select * from oussama_data;","loginEmailForVendor");
+    //String loginEmailForVendor = Utility.decode(vendorEmail.get(0));
+    List<String> vendorPassword = connectDB.getTableColumnData("select * from oussama_data;","loginPasswordForVendor");
+    //String loginPasswordForVendor = Utility.decode(vendorPassword.get(0));
+    List<String> vendor2Email = connectDB.getTableColumnData("select * from oussama_data;","loginEmailForVendor2");
+    //String loginEmailForVendor2 = Utility.decode(vendor2Email.get(0));
+    List<String> vendor2Password = connectDB.getTableColumnData("select * from oussama_data;","loginPasswordForVendor2");
+    //String loginPasswordForVendor2 = Utility.decode(vendor2Password.get(0));
+
+    //---------------------------------------------------------------------------------------------------------------
+    // ********************************************( Fake Data  )****************************************************
+    // --------------------------------------------------------------------------------------------------------------
+
+    Faker faker = new Faker();
+    public String fakeEmailAddress() {
+        return faker.internet().emailAddress();
+    }
+    public String fakePassword() {
+        return faker.internet().password(14,16,true);
+    }
+    public String fakeShopName() {
+        return faker.name().username();
+    }
+    public String fakeFirstName() {
+        return faker.name().firstName();
+    }
+    public String fakeLastName() {
+        return faker.name().lastName();
+    }
+    public String fakePhoneNumber() {
+        return faker.phoneNumber().phoneNumber();
+    }
 
     //----------------------------------------------------------------------------------------------------------------
     // ************************************************( Locators )***************************************************
@@ -171,8 +219,18 @@ public class MyAccountPage extends CommonAPI {
         type(loginEmailField,loginEmailForVendor);
         log.info("Successfully entered email address");
     }
+
     public void enterValidPasswordLoginVendor() {
         type(loginPasswordField,loginPasswordForVendor);
+        log.info("Successfully entered Password");
+    }
+    public void enterValidEmailLoginVendor2() {
+        type(loginEmailField,loginEmailForVendor2);
+        log.info("Successfully entered email address");
+    }
+
+    public void enterValidPasswordLoginVendor2() {
+        type(loginPasswordField,loginPasswordForVendor2);
         log.info("Successfully entered Password");
     }
 
@@ -236,27 +294,4 @@ public class MyAccountPage extends CommonAPI {
       return text;
     }
 
-    //---------------------------------------------------------------------------------------------------------------
-    // ********************************************( Fake Data  )****************************************************
-    // --------------------------------------------------------------------------------------------------------------
-
-    Faker faker = new Faker();
-    public String fakeEmailAddress() {
-        return faker.internet().emailAddress();
-    }
-    public String fakePassword() {
-        return faker.internet().password(14,16,true);
-    }
-    public String fakeShopName() {
-        return faker.name().username();
-    }
-    public String fakeFirstName() {
-        return faker.name().firstName();
-    }
-    public String fakeLastName() {
-        return faker.name().lastName();
-    }
-    public String fakePhoneNumber() {
-        return faker.phoneNumber().phoneNumber();
-    }
 }

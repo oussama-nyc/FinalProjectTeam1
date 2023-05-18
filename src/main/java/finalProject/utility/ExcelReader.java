@@ -11,6 +11,7 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class ExcelReader {
     private final Logger LOG = LogManager.getLogger(ExcelReader.class.getName());
 
@@ -90,19 +91,17 @@ public class ExcelReader {
         return value;
     }
 
-
-
     public static void main(String[] args)  {
-       String currentDir = System.getProperty("user.dir");
-       String path = currentDir+ File.separator+"data.xlsx";
-       System.out.println(path);;
-
-        // ExcelReader excelReader = new ExcelReader(path);
-       // System.out.println(excelReader.getValueForGivenHeaderAndKey("data","Parameters","loginEmailForCustomer "));
+        String currentDir = System.getProperty("user.dir");
+        String path = currentDir+File.separator+"data"+File.separator+"oussama-data.xlsx";
+        System.out.println(path);
+        ExcelReader excelReader = new ExcelReader(path);
+        System.out.println(excelReader.getDataFromCell("oussama-data",0,1));
 
 //        List<String> items = excelReader.getEntireColumnForGivenHeader("Sheet1", "id");
 //        //String items = excelReader.getValueForGivenHeaderAndKey("Sheet1", "id", "id004");
 //        System.out.println(items);
     }
-
 }
+
+
