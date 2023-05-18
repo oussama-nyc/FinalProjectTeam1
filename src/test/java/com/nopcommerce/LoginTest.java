@@ -20,9 +20,9 @@ public class LoginTest extends CommonAPI {
 //    String email =Utility.decode(prop.getProperty("email"));
 //    String password =Utility.decode(prop.getProperty("password"));
 
-    String email  = "email1@gmail.com";
+    String email  = "email2001@gmail.com";
     String password = "Admin1234";
-@Test
+@Test (priority = 1)
     public void loginTest(){
         HomePage homePage = new HomePage(getDriver());
         RegisterPage registerPage = new RegisterPage(getDriver());
@@ -38,14 +38,21 @@ public class LoginTest extends CommonAPI {
         String expectedText="Log out";
         String actualText = loginPage.loginValidationText();
         Assert.assertEquals(expectedText,actualText);
-
-
-
-
-
-
-
     }
-
+    @Test(priority = 2)
+    public void logOutTest(){
+        HomePage homePage = new HomePage(getDriver());
+        RegisterPage registerPage = new RegisterPage(getDriver());
+        LoginPage loginPage = new LoginPage(getDriver());
+        loginPage.clickOnLoginLink();
+        loginPage.typeUsername(email);
+        waitFor(2);
+        loginPage.typePassword(password);
+        waitFor(2);
+        scrollByAmount(0,100);
+        loginPage.clickOnLoginButton();
+        waitFor(5);
+        loginPage.clickOnLogOutButton();
+    }
 
 }
