@@ -12,17 +12,22 @@
 
     <test name="AbuTest ">
         <classes>
-<!--            <class name="com.nopcommerce.RegisterTest"></class>-->
+            <class name="com.nopcommerce.RegisterTest"></class>
         </classes>
     </test>
-    <test name="Login Test ">
-        <classes>
+<!--    <test name="Login Test ">-->
+<!--        <classes>-->
 <!--            <class name="com.nopcommerce.LoginTest"></class>-->
-        </classes>
-    </test>
-    <test name="InvalidCredentialsTest">
-        <classes>
-            <class name="com.nopcommerce.InvalidCredentialsTest"></class>
-        </classes>
-    </test>
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="InvalidCredentialsTest">-->
+<!--        <classes>-->
+<!--            <class name="com.nopcommerce.InvalidCredentialsTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="FeatureTest">-->
+<!--        <classes>-->
+<!--            <class name="com.nopcommerce.FeatureTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>

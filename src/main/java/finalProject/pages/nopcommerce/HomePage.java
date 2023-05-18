@@ -32,8 +32,7 @@ public class HomePage extends CommonAPI {
     }
 
 
-
-
-
+    public void typeItemAndClickSearch(String itemName) {
+    }
 
 }
