@@ -3,12 +3,14 @@ package com.nopcommerce;
 import finalProject.base.CommonAPI;
 import finalProject.pages.nopcommerce.HomePage;
 import finalProject.pages.nopcommerce.RegisterPage;
+import finalProject.utility.ExcelReader;
 import finalProject.utility.Utility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.util.Properties;
 
 public class RegisterTest extends CommonAPI {
@@ -26,9 +28,15 @@ public class RegisterTest extends CommonAPI {
 //    String confirmPassword = Utility.decode(prop.getProperty("confirmPassword"));
 
 
+
+    String currentDir = System.getProperty("user.dir");
+    String path = currentDir+ File.separator+"data"+File.separator+"oussama-data.xlsx";
+    ExcelReader excelReader = new ExcelReader(path);
+
     String fristName = "ABU";
     String lastName  = "YOUSUF";
-    String email  = "email20011@gmail.com";
+    //String email  = "email20011@gmail.com";
+    String email =excelReader.getDataFromCell("oussama-data",6,1);
     String company  = "US BANGLA CORP";
     String password = "Admin1234";
     String confirmPassword = "Admin1234";
