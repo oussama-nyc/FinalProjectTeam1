@@ -92,6 +92,7 @@ public class ExcelReader {
     }
 
     public static void main(String[] args)  {
+
         String currentDir = System.getProperty("user.dir");
         String path = currentDir+File.separator+"data"+File.separator+"oussama-data.xlsx";
         System.out.println(path);
