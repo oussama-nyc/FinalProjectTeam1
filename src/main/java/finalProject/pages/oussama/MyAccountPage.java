@@ -42,18 +42,18 @@ public class MyAccountPage extends CommonAPI {
     //----------------------------------------------------------------------------------------------------------------
     // ************************************************( Data From DB )*******************************************************
     // ---------------------------------------------------------------------------------------------------------------
-    ConnectDB connectDB = new ConnectDB();
-    List<String> customerEmail = connectDB.getTableColumnData("select * from oussama_data;","loginEmailForCustomer");
+    //ConnectDB connectDB = new ConnectDB();
+    //List<String> customerEmail = connectDB.getTableColumnData("select * from oussama_data;","loginEmailForCustomer");
     //String loginEmailForCustomer = Utility.decode(customerEmail.get(0));
-    List<String> customerPassword = connectDB.getTableColumnData("select * from oussama_data;","loginPasswordForCustomer");
+    //List<String> customerPassword = connectDB.getTableColumnData("select * from oussama_data;","loginPasswordForCustomer");
     //String loginPasswordForCustomer = Utility.decode(customerPassword.get(0));
-    List<String> vendorEmail = connectDB.getTableColumnData("select * from oussama_data;","loginEmailForVendor");
+    //List<String> vendorEmail = connectDB.getTableColumnData("select * from oussama_data;","loginEmailForVendor");
     //String loginEmailForVendor = Utility.decode(vendorEmail.get(0));
-    List<String> vendorPassword = connectDB.getTableColumnData("select * from oussama_data;","loginPasswordForVendor");
+    //List<String> vendorPassword = connectDB.getTableColumnData("select * from oussama_data;","loginPasswordForVendor");
     //String loginPasswordForVendor = Utility.decode(vendorPassword.get(0));
-    List<String> vendor2Email = connectDB.getTableColumnData("select * from oussama_data;","loginEmailForVendor2");
+    //List<String> vendor2Email = connectDB.getTableColumnData("select * from oussama_data;","loginEmailForVendor2");
     //String loginEmailForVendor2 = Utility.decode(vendor2Email.get(0));
-    List<String> vendor2Password = connectDB.getTableColumnData("select * from oussama_data;","loginPasswordForVendor2");
+    //List<String> vendor2Password = connectDB.getTableColumnData("select * from oussama_data;","loginPasswordForVendor2");
     //String loginPasswordForVendor2 = Utility.decode(vendor2Password.get(0));
 
     //---------------------------------------------------------------------------------------------------------------
