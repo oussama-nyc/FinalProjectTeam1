@@ -45,6 +45,9 @@ public class HeaderPage extends CommonAPI {
     @FindBy(css = "a[title='Track Your Order']")
     WebElement trackYourOrderLink;
 
+    @FindBy(css = ".ec.ec-compare")
+    WebElement compareIcon;
+
     //----------------------------------------------------------------------------------------------------------------
     // ****************************************( Reusable Methods )***************************************************
     // ---------------------------------------------------------------------------------------------------------------
@@ -92,5 +95,10 @@ public class HeaderPage extends CommonAPI {
     public void clickOnStoresLink() {
         clickOn(storesLink);
         log.info("The stores page opened successfully.");
+    }
+
+    public void clickOnCompareIcon() {
+        clickOn(compareIcon);
+        log.info("The Compare page is open and displayed on the screen Successfully");
     }
 }

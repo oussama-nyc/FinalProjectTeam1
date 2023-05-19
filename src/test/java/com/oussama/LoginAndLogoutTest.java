@@ -51,8 +51,6 @@ public class LoginAndLogoutTest extends CommonAPI {
 
         headerPage.hoverOverAndClickOnLogoutLink(getDriver());
 
-        //captureScreenshot();
-
         //Verify that the Customer is redirected to the Home page.
         String expectedTitleAfterCustomerLogout = "My Account – Welcome to Worldwide Electronics Store";
         String actualTitleAfterCustomerLogout = getCurrentTitle();
