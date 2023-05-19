@@ -24,7 +24,7 @@
             <class name="com.oussama.FilterTest"></class>
             <class name="com.oussama.AddNewProductTest"></class>
             <class name="com.oussama.CheckoutTest"></class>
-
+            <class name="com.oussama.CouponCodeTest"></class>
         </classes>
     </test>
 </suite>
