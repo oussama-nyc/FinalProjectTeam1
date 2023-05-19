@@ -23,7 +23,7 @@ public class InvalidCredentialsPage extends CommonAPI {
     WebElement invalidEmailValidation;
 
     // unsuccessful Login Validation
-    @FindBy(xpath = "div[class='message-error validation-summary-errors'] ul li")
+    @FindBy(xpath = "//li[normalize-space()='No customer account found']")
     WebElement unsuccessfulLoginValidation;
 
 

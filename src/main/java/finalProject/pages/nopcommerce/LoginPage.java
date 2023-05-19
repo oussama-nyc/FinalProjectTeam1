@@ -11,7 +11,9 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage extends CommonAPI {
     Logger log = LogManager.getLogger(RegisterPage.class.getName());
 
-    public LoginPage(WebDriver driver) { PageFactory.initElements(driver, this);}
+    public LoginPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+    }
 
 
     //--------------------------------------------------------------------------------
@@ -35,8 +37,12 @@ public class LoginPage extends CommonAPI {
     WebElement LoginButton;
 
     // Login validation
-    @FindBy(css = ".ico-logout")
+    @FindBy(xpath = "//a[@class='ico-logout']")
     WebElement loginValidation;
+
+    // Logout button
+    @FindBy(xpath = "//a[@class='ico-logout']")
+    WebElement LogOutButton;
 
 
 //--------------------------------------------------------------------------
@@ -67,10 +73,16 @@ public class LoginPage extends CommonAPI {
         clickOn(LoginButton);
         log.info(" Click On LoginButton successfully");
     }
-   // Login   Validation
+
+    // Login   Validation
     public String loginValidationText() {
         String text = getElementText(loginValidation);
         log.info("  login Validation successfully");
         return text;
+    }
+
+    public void clickOnLogOutButton() {
+        clickOn(LogOutButton);
+        log.info(" Click On LogOutButton successfully");
     }
 }
