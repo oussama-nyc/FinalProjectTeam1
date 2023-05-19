@@ -13,16 +13,17 @@
 
     <test name="OUSSAMA TEST CASES ">
         <classes>
-<!--            <class name="com.oussama.RegisterTest"></class>-->
+            <class name="com.oussama.RegisterTest"></class>
             <class name="com.oussama.LoginAndLogoutTest"></class>
-<!--            <class name="com.oussama.PasswordStrengthValidation"></class>-->
-<!--            <class name="com.oussama.ContactUsTest"></class>-->
-<!--            <class name="com.oussama.ContactStoreVendorTest"></class>-->
-<!--            <class name="com.oussama.SearchTest"></class>-->
-<!--            <class name="com.oussama.TrackYourOrderTest"></class>-->
-<!--            <class name="com.oussama.ProductReviewsAndRatingsTest"></class>-->
-<!--            <class name="com.oussama.FilterTest"></class>-->
-<!--            <class name="com.oussama.AddNewProductTest"></class>-->
+            <class name="com.oussama.PasswordStrengthValidation"></class>
+            <class name="com.oussama.ContactUsTest"></class>
+            <class name="com.oussama.ContactStoreVendorTest"></class>
+            <class name="com.oussama.SearchTest"></class>
+            <class name="com.oussama.TrackYourOrderTest"></class>
+            <class name="com.oussama.ProductReviewsAndRatingsTest"></class>
+            <class name="com.oussama.FilterTest"></class>
+            <class name="com.oussama.AddNewProductTest"></class>
+            <class name="com.oussama.CheckoutTest"></class>
 
         </classes>
     </test>

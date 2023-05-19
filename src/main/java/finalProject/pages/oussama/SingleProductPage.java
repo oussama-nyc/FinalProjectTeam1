@@ -45,6 +45,19 @@ public class SingleProductPage extends CommonAPI {
     @FindBy(xpath = "(//p[@class='meta'])[8]")
     WebElement confirmationReviewText;
 
+    @FindBy(xpath = "//button[normalize-space()='Add to cart']")
+    WebElement addToCartButton;
+
+    @FindBy(xpath = "//input[@inputmode='numeric']")
+    WebElement productQuantityField;
+
+    @FindBy(xpath = "//div[@role='alert']")
+    WebElement addToCartAlertText;
+
+    @FindBy(css = "div[role='alert'] a[class='button wc-forward wp-element-button']")
+    WebElement viewCartButton;
+
+
 
     //----------------------------------------------------------------------------------------------------------------
     // ****************************************( Reusable Methods )***************************************************
@@ -91,4 +104,31 @@ public class SingleProductPage extends CommonAPI {
         log.info("comment is added Successfully and awaiting approval");
         return text;
     }
+
+    public String getAddToCartButtonText() {
+        String text = getElementText(addToCartButton);
+        return text;
+    }
+
+    public void SelectProductQuantity() {
+        clear(productQuantityField);
+        type(productQuantityField,"3");
+        log.info("Successfully selected the desired quantity of the product.");
+    }
+
+    public void clickOnAddProductToTheCart() {
+        clickOn(addToCartButton);
+        log.info("Successfully added the product to the cart.");
+    }
+
+    public String getAddToCartAlertText() {
+        String text = getElementText(addToCartAlertText);
+        return text;
+    }
+
+    public void clickOnViewCartButton() {
+        clickOn(viewCartButton);
+        log.info("The cart page is displayed successfully");
+    }
+
 }
