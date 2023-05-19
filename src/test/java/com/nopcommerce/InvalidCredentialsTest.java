@@ -39,7 +39,8 @@ public class InvalidCredentialsTest extends CommonAPI {
         loginPage.clickOnLoginLink();
         loginPage.typeUsername(invalidEmail);
         loginPage.typePassword(Password);
-        scrollByAmount(0,50);
+        waitFor(5);
+        scrollByAmount(0,1000);
         //asserson
         String expectedText="Wrong email";
         String actualText = invalidCredentialsPage.invalidEmailValidationText();
@@ -57,6 +58,7 @@ public class InvalidCredentialsTest extends CommonAPI {
         loginPage.typeUsername(validEmail);
         waitFor(5);
         loginPage.typePassword(invPassword);
+            scrollByAmount(0, 100);
         waitFor(5);
 
         loginPage.clickOnLoginButton();
