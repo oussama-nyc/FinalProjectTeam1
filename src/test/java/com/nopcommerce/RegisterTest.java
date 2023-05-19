@@ -1,5 +1,6 @@
 package com.nopcommerce;
 
+import com.github.javafaker.Faker;
 import finalProject.base.CommonAPI;
 import finalProject.pages.nopcommerce.HomePage;
 import finalProject.pages.nopcommerce.RegisterPage;
@@ -32,11 +33,14 @@ public class RegisterTest extends CommonAPI {
     String currentDir = System.getProperty("user.dir");
     String path = currentDir+ File.separator+"data"+File.separator+"oussama-data.xlsx";
     ExcelReader excelReader = new ExcelReader(path);
+    Faker faker = new Faker();
 
     String fristName = "ABU";
     String lastName  = "YOUSUF";
-    //String email  = "email20011@gmail.com";
-    String email =excelReader.getDataFromCell("oussama-data",6,1);
+    String email  = "email2001@gmail.com";
+    // String email=  faker.internet().emailAddress();
+
+    //String email =excelReader.getDataFromCell("oussama-data",6,1);
     String company  = "US BANGLA CORP";
     String password = "Admin1234";
     String confirmPassword = "Admin1234";
@@ -79,7 +83,7 @@ public class RegisterTest extends CommonAPI {
         registerPage.typePassword(password);
 
         registerPage.typeConfirmPassword(confirmPassword);
-
+       // captureScreenshot();
         registerPage.clickOnRegisterButton();
 
         // registration validation

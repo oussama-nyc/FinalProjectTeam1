@@ -1,5 +1,6 @@
 package com.nopcommerce;
 
+import com.github.javafaker.Faker;
 import finalProject.base.CommonAPI;
 import finalProject.pages.nopcommerce.HomePage;
 import finalProject.pages.nopcommerce.LoginPage;
@@ -20,7 +21,13 @@ public class LoginTest extends CommonAPI {
 //    String email =Utility.decode(prop.getProperty("email"));
 //    String password =Utility.decode(prop.getProperty("password"));
 
-    String email  = "email2001@gmail.com";
+    Faker faker = new Faker();
+    //String email=  faker.internet().emailAddress();
+   String email  = "email2001@gmail.com";
+
+
+
+
     String password = "Admin1234";
 @Test (priority = 1)
     public void loginTest(){
@@ -29,9 +36,9 @@ public class LoginTest extends CommonAPI {
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.clickOnLoginLink();
         loginPage.typeUsername(email);
-        waitFor(2);
+        waitFor(1);
         loginPage.typePassword(password);
-        waitFor(2);
+        waitFor(1);
         scrollByAmount(0,100);
         loginPage.clickOnLoginButton();
 
@@ -46,12 +53,12 @@ public class LoginTest extends CommonAPI {
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.clickOnLoginLink();
         loginPage.typeUsername(email);
-        waitFor(2);
+        waitFor(1);
         loginPage.typePassword(password);
-        waitFor(2);
+        waitFor(1);
         scrollByAmount(0,100);
         loginPage.clickOnLoginButton();
-        waitFor(5);
+        waitFor(1);
         loginPage.clickOnLogOutButton();
     }
 
