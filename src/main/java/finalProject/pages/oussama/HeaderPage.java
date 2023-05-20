@@ -48,6 +48,11 @@ public class HeaderPage extends CommonAPI {
     @FindBy(css = ".ec.ec-compare")
     WebElement compareIcon;
 
+    @FindBy(css = ".ec.ec-favorites")
+    WebElement WishlistIcon;
+
+
+
     //----------------------------------------------------------------------------------------------------------------
     // ****************************************( Reusable Methods )***************************************************
     // ---------------------------------------------------------------------------------------------------------------
@@ -101,4 +106,11 @@ public class HeaderPage extends CommonAPI {
         clickOn(compareIcon);
         log.info("The Compare page is open and displayed on the screen Successfully");
     }
+
+    public void clickOnWishlistIcon() {
+        clickOn(WishlistIcon);
+        log.info("The wishlist page is open and displayed on the screen Successfully");
+    }
+
+
 }

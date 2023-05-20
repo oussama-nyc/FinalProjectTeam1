@@ -2,10 +2,15 @@ package com.oussama;
 
 import finalProject.base.CommonAPI;
 import finalProject.pages.oussama.*;
+import finalProject.utility.ExcelReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.io.File;
+import java.util.List;
 
 public class CheckoutTest extends CommonAPI {
 
@@ -17,7 +22,7 @@ public class CheckoutTest extends CommonAPI {
     // ---------------------------------------------------------------------------------------------------------------
 
 
-    @Test
+   // @Test
     public void checkoutForLoggedInUsers() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());
@@ -141,9 +146,15 @@ public class CheckoutTest extends CommonAPI {
     // ***************************( Test case for Checkout For Guest Users )****************************************
     // ---------------------------------------------------------------------------------------------------------------
 
+//    @DataProvider(name = "checkoutForGuestUsers")
+//    public Object [][] getData(){
+//        Object[][] data={{"Tom","Jerry","GB","4 Royal Oak Way North","Apt N","DAVENTRY","Northamptonshire","NN11 8QL","1234567890","guest1@gmail.com"},{"Jasper","Jinx","GB","10 North holland st","Apt 13C","COLCHESTER","Abberton","WR10 8ql","1234567890","guest2@gmail.com"}};
+//        return data;
+//    }
 
-  @Test
-    public void checkoutForGuestUsers() {
+
+  @Test (dataProvider = "checkoutForGuestUsers",dataProviderClass = ExcelReader.class )
+    public void checkoutForGuestUsers(String firstName,String lastName,String country,String streetAddress,String apt,String town,String state,String zipCode,String phoneNumber,String email) {
       HeaderPage headerPage = new HeaderPage(getDriver());
       ShopPage shopPage = new ShopPage(getDriver());
       SingleProductPage singleProductPage = new SingleProductPage(getDriver());
@@ -187,37 +198,37 @@ public class CheckoutTest extends CommonAPI {
       cartPage.clickOnProceedToCheckoutButton();
 
       //Enter a valid First name in the " First name " field
-      checkoutPage.enterValidFirstName("Tom");
+      checkoutPage.enterValidFirstName(firstName);
 
       //Enter a valid Last name in the " Last name " field
-      checkoutPage.enterValidLastName("Jerry");
+      checkoutPage.enterValidLastName(lastName);
 
       scrollByAmount(0,400);
 
       //Select a Country/Region from the " Country/Region  " field
-      checkoutPage.selectCountryRegion("GB");
+      checkoutPage.selectCountryRegion(country);
 
       //Enter a valid Street address in the " Street address " field
-      checkoutPage.enterValidAddress("4 Royal Oak Way North","Apt N");
+      checkoutPage.enterValidAddress(streetAddress,apt);
 
 
       //Enter a valid Town/City in the " Town/City " field
-      checkoutPage.enterValidTownCity("DAVENTRY");
+      checkoutPage.enterValidTownCity(town);
 
       scrollByAmount(0,400);
 
       //Select a State from the "State/County" field
-      checkoutPage.typeValidStateCounty("Northamptonshire");
+      checkoutPage.typeValidStateCounty(state);
 
       //Enter a valid ZIP Code in the ZIP Code field
-      checkoutPage.enterValidZIPCode("NN11 8QL");
+      checkoutPage.enterValidZIPCode(zipCode);
 
 
       //Enter a valid Phone in the Phone number field
-      checkoutPage.enterValidPhoneNumber("1234567890");
+      checkoutPage.enterValidPhoneNumber(phoneNumber);
 
       //Enter a valid Email in the " Email " field
-      checkoutPage.enterValidEmail("guest@gmail.com");
+      checkoutPage.enterValidEmail(email);
 
 
       //Choose the payment method: "Check payments" or "Cash on delivery".

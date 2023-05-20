@@ -50,6 +50,11 @@ public class ShopPage extends CommonAPI {
 
     @FindBy(css = "div[class='product type-product post-2928 status-publish outofstock product_cat-smart-phones-tablets product_cat-smartphones has-post-thumbnail featured shipping-taxable purchasable product-type-simple'] img[class='attachment-woocommerce_thumbnail size-woocommerce_thumbnail']")
     WebElement Smartphone6S128GBLTE;
+
+    @FindBy(xpath = "//div[contains(@class,'summary entry-summary')]//span[contains(text(),'Add to wishlist')]")
+    WebElement AddToWishListPageLink;
+
+
     //----------------------------------------------------------------------------------------------------------------
     // ****************************************( Reusable Methods )***************************************************
     // ---------------------------------------------------------------------------------------------------------------
@@ -106,6 +111,10 @@ public class ShopPage extends CommonAPI {
         log.info("The selected product's details are displayed Successfully");
     }
 
+    public void clickOnAddToWishListPageLink() {
+        clickOn(AddToWishListPageLink);
+        log.info("The selected product is successfully added to the wishlist page");
+    }
 
 
 }
