@@ -94,6 +94,7 @@ public class CommonAPI {
             }
         }
         driver.quit();
+        log.info("browser close success");
     }
     @AfterSuite
     public void generateReport() {
@@ -155,12 +156,12 @@ public class CommonAPI {
 
         driver.get(url);
     }
-    @AfterMethod
-   public void tearDown(){
-        //close browser
-       driver.quit();
-      log.info("browser close success");
-  }
+//    @AfterMethod
+//   public void tearDown(){
+//        //close browser
+//       driver.quit();
+//      log.info("browser close success");
+//  }
 
     WebDriver driver;
     public WebDriver getDriver() {
