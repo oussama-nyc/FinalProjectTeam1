@@ -2,12 +2,16 @@ package finalProject.utility;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.annotations.DataProvider;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,17 +95,63 @@ public class ExcelReader {
         return value;
     }
 
-    public static void main(String[] args)  {
+    //----------------------------------------------------------------------------------------------------------------
+    // **************************(  Data Provider Checkout For Guest Users )***********************************
+    // ---------------------------------------------------------------------------------------------------------------
+
+    public List<String> getEntireColumnDataFromExcelSheet(String sheet, int rowStart, int colNum) {
+        List<String> columnData = new ArrayList<>();
+        try {
+            File file = new File(path);
+            FileInputStream excelFile = new FileInputStream(file);
+            excelWBook = new XSSFWorkbook(excelFile);
+            excelWSheet = excelWBook.getSheet(sheet);
+
+            DataFormatter formatter = new DataFormatter();
+            for (int i = rowStart; i < excelWSheet.getLastRowNum() + 1; i++) {
+                Cell cell = excelWSheet.getRow(i).getCell(colNum);
+                String cellValue = formatter.formatCellValue(cell);
+                columnData.add(cellValue);
+            }
+
+            excelFile.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            LOG.info("No data found");
+        }
+        return columnData;
+    }
+
+    @DataProvider(name = "checkoutForGuestUsers")
+    public static Object[][] getData() {
+        String currentDir = System.getProperty("user.dir");
+        String path = currentDir+File.separator+"data"+File.separator+"oussama-data.xlsx";
+        System.out.println(path);
+        ExcelReader excelReader = new ExcelReader(path);
+        List<String> items1 = excelReader.getEntireColumnDataFromExcelSheet("CheckoutDataProvider",1,1);
+        List<String> items2 = excelReader.getEntireColumnDataFromExcelSheet("CheckoutDataProvider",1,2);
+        Object[][] data = new Object[2][];
+        data[0] = items1.toArray();
+        data[1] = items2.toArray();
+        return data;
+    }
+
+    //----------------------------------------------------------------------------------------------------------------
+    // **************************************(  End Of Data Provider  )****************************************
+    // ---------------------------------------------------------------------------------------------------------------
+
+            public static void main(String[] args)  {
 
         String currentDir = System.getProperty("user.dir");
         String path = currentDir+File.separator+"data"+File.separator+"oussama-data.xlsx";
         System.out.println(path);
         ExcelReader excelReader = new ExcelReader(path);
-        System.out.println(excelReader.getDataFromCell("oussama-data",7,1));
+        System.out.println(excelReader.getDataFromCell("oussama-data",9,1));
 
 //        List<String> items = excelReader.getEntireColumnForGivenHeader("Sheet1", "id");
 //        //String items = excelReader.getValueForGivenHeaderAndKey("Sheet1", "id", "id004");
 //        System.out.println(items);
+
     }
 }
 
