@@ -25,6 +25,19 @@ public class CheckOutPage extends CommonAPI {
     @FindBy(xpath = "//div[@class='products-wrapper']//div[2]//div[1]//div[2]//div[3]//div[2]//button[1]")
     WebElement flowerGirlBracelet;
 
+    //click for Compare flower Girl Bracelet;
+    @FindBy(xpath = "//div[@class='products-wrapper']//div[2]//div[1]//div[2]//div[3]//div[2]//button[1]")
+    WebElement compareClowerGirlBracelet;
+
+    //click for Compare Elegant Gemstone
+
+    @FindBy(css = "body > div:nth-child(7) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > button:nth-child(2)")
+    WebElement compareElegantGemstone;
+
+    //product comparison
+    @FindBy(xpath = "//a[normalize-space()='product comparison']")
+    WebElement comparison;
+
     //click on add to cart
     @FindBy(xpath = "//a[normalize-space()='shopping cart']")
     WebElement addToCart;
@@ -71,6 +84,11 @@ public class CheckOutPage extends CommonAPI {
     @FindBy(xpath = "//h2[normalize-space()='Billing address']")
     WebElement CheckOutValidation;
 
+    // compare Validation
+
+    @FindBy(xpath = "//h1[normalize-space()='Compare products']")
+    WebElement compareValidation;
+
     //***************************************Methods*************************************************
     public void clickOnJewelry() {
         clickOn(jewelry);
@@ -82,7 +100,21 @@ public class CheckOutPage extends CommonAPI {
         clickOn(flowerGirlBracelet);
         log.info(" Click On flowerGirlBracelet Link successfully.");
     }
-
+    // compare Clower Gir lBracelet
+    public void clickOnFlowerGirlBraceletCompare() {
+        clickOn(compareClowerGirlBracelet);
+        log.info(" Click On flowerGirlBracelet Link successfully.");
+    }
+    //click On compare Vintage Style EngagementRing
+    public void clickOncomparecompareElegantGemstone() {
+        clickOn(compareElegantGemstone);
+        log.info(" Click On compare Vintage Style Engagement Ring Link successfully.");
+    }
+    //product comparison
+    public void clickOnComparison() {
+        clickOn(comparison);
+        log.info(" Click On comparison Link successfully.");
+    }
     //addToCart
     public void clickOnAddToCart() {
         clickOn(addToCart);
@@ -142,5 +174,11 @@ public void clickOnUpdateQty() {
     public void clickOnUpdateButton() {
         clickOn(updateCart);
         log.info(" update Cart successfully.");
+    }
+        // compare Validation
+    public String compareValidationText() {
+        String text = getElementText(compareValidation);
+        log.info("  Compare Validation succeeded");
+        return text;
     }
 }

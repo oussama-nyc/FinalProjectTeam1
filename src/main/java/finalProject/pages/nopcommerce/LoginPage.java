@@ -44,6 +44,11 @@ public class LoginPage extends CommonAPI {
     @FindBy(xpath = "//a[@class='ico-logout']")
     WebElement LogOutButton;
 
+    //////////Log-Out Validation
+    @FindBy(xpath = "//a[@class='ico-login']")
+    WebElement LogoutValidation;
+
+
 
 //--------------------------------------------------------------------------
 // *********************************( Reusable Methods )**************************
@@ -85,4 +90,13 @@ public class LoginPage extends CommonAPI {
         clickOn(LogOutButton);
         log.info(" Click On LogOutButton successfully");
     }
+////////Log-Out Validation
+    public String logOutValidationText() {
+        String text = getElementText(LogoutValidation);
+        log.info("  log out Validation successfully");
+        return text;
+    }
+
+
+
 }

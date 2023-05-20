@@ -48,6 +48,6 @@ public class CheckOutTest extends CommonAPI {
         checkOutPage.typeQuantity("3");
         checkOutPage.clickOnUpdateButton();
 
-        waitFor(3);
+        waitFor(1);
     }
 }

@@ -146,7 +146,7 @@ public class ExcelReader {
         String path = currentDir+File.separator+"data"+File.separator+"oussama-data.xlsx";
         System.out.println(path);
         ExcelReader excelReader = new ExcelReader(path);
-        System.out.println(excelReader.getDataFromCell("oussama-data",6,1));
+        System.out.println(excelReader.getDataFromCell("oussama-data",9,1));
 
 //        List<String> items = excelReader.getEntireColumnForGivenHeader("Sheet1", "id");
 //        //String items = excelReader.getValueForGivenHeaderAndKey("Sheet1", "id", "id004");
