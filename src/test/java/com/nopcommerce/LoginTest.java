@@ -60,6 +60,12 @@ public class LoginTest extends CommonAPI {
         loginPage.clickOnLoginButton();
         waitFor(1);
         loginPage.clickOnLogOutButton();
+
+        String expectedText="Log in";
+        String actualText = loginPage.logOutValidationText();
+        Assert.assertEquals(expectedText,actualText);
+
+
     }
 
 }

@@ -103,8 +103,8 @@
         <version>2.12.4</version>
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>src/test/resources/oussamarunner.xml</suiteXmlFile>
-<!--            <suiteXmlFile>src/test/resources/aburunner.xml</suiteXmlFile>-->
+<!--            <suiteXmlFile>src/test/resources/oussamarunner.xml</suiteXmlFile>-->
+            <suiteXmlFile>src/test/resources/aburunner.xml</suiteXmlFile>
 <!--            <suiteXmlFile>src/test/resources/aghelesrunner.xml</suiteXmlFile>-->
 <!--            <suiteXmlFile>src/test/resources/fouadrunner.xml</suiteXmlFile>-->
           </suiteXmlFiles>

@@ -72,6 +72,7 @@ public class RegisterPage extends CommonAPI {
     @FindBy(xpath = "//li[normalize-space()='The specified email already exists']")
     WebElement reRegistrationValidation;
 
+
     //----------------------------------------------------------------------------------------------------------------
     // ****************************************( Reusable Methods )***************************************************
     // ---------------------------------------------------------------------------------------------------------------
@@ -157,6 +158,8 @@ public class RegisterPage extends CommonAPI {
         return text;
 
     }
+    // Recovery email Field
+
 }
 
 
