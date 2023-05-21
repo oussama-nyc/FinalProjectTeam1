@@ -51,7 +51,9 @@ public class ContactUsPage extends CommonAPI {
         log.info("Successfully entered last Name");
     }
 
-    public void enterEmailAddressFieldField(String emailAddress ) {
+    public void enterEmailAddressFieldField(String emailAddress,WebDriver driver ) {
+        scrollToElement(emailAddressField,driver);
+        waitFor(1);
         type(emailAddressField,emailAddress);
         log.info("Successfully entered email address");
     }

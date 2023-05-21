@@ -26,14 +26,12 @@ public class ContactUsTest extends CommonAPI {
         Assert.assertEquals(expectedTitle, actualTitle);
 
         // Navigate to the Contact Us page on the website
-        scrollByAmount(0,4000);
-        headerPage.clickOnContactUsLink();
+        headerPage.clickOnContactUsLink(getDriver());
 
         // Fill in the required fields in the contact form, including Name, Email, and Comment or Message.
         contactUsPage.enterFirstNameField("OUSSAMA");
         contactUsPage.enterLastNameField("ACHOUR");
-        scrollByAmount(0,500);
-        contactUsPage.enterEmailAddressFieldField("achournyc@hotmail.com");
+        contactUsPage.enterEmailAddressFieldField("achournyc@hotmail.com",getDriver());
         contactUsPage.enterMessageField("I'm having trouble locating my order ID. Can you please resend it to me?");
 
         // Click on the "Send Message" button.

@@ -55,13 +55,16 @@ public class WishListPage extends CommonAPI {
         return text;
     }
 
-    public String getSmartphoneLTEOnWishListTitle() {
+    public String getSmartphoneLTEOnWishListTitle(WebDriver driver) {
+        scrollToElement(smartphoneLTEOnWishList,driver);
+        waitFor(1);
         String text = getElementText(smartphoneLTEOnWishList);
         log.info("smartphone LTE are added to the wishlist page Successfully");
         return text;
     }
 
-    public String getTabletThinEliteBooOnWishListTitle() {
+    public String getTabletThinEliteBooOnWishListTitle(WebDriver driver) {
+        scrollToElement(tabletThinEliteBookOnWishList,driver);
         String text = getElementText(tabletThinEliteBookOnWishList);
         log.info("tablet Thin EliteBook are added to the wishlist page Successfully");
         return text;
@@ -89,7 +92,8 @@ public class WishListPage extends CommonAPI {
     }
 
 
-    public String getProductAddedToCartAlertText() {
+    public String getProductAddedToCartAlertText(WebDriver driver) {
+        scrollToElement(productAddedToCartAlert,driver);
         String text = getElementText(productAddedToCartAlert);
         log.info("Product added to cart successfully");
         return text;

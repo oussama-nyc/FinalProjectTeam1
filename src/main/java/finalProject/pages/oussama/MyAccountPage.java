@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import java.io.File;
-import java.util.List;
+
 
 
 public class MyAccountPage extends CommonAPI {
@@ -154,7 +154,8 @@ public class MyAccountPage extends CommonAPI {
         log.info("Successfully entered email address");
     }
 
-    public void enterRegisterPasswordFieldFakeData() {
+    public void enterRegisterPasswordFieldFakeData(WebDriver driver) {
+        scrollToElement(registerPasswordField,driver);
         type(registerPasswordField,fakePassword());
         log.info("Successfully entered Password");
     }
@@ -169,9 +170,12 @@ public class MyAccountPage extends CommonAPI {
         log.info("The I am a customer registration type is selected Successfully");
     }
 
-    public void clickOnRegisterButton() {
+    public void clickOnRegisterButton( WebDriver driver) {
+        scrollToElement(registerButton,driver);
+        waitFor(1);
         clickOn(registerButton);
-        log.info("The I am a customer registration type is selected Successfully");
+        log.info("Successfully clicked on Register Button");
+        waitFor(1);
     }
 
     public void enterRegisterFirstNameField() {
@@ -184,7 +188,8 @@ public class MyAccountPage extends CommonAPI {
         log.info("Successfully entered Last Name");
     }
 
-    public void enterRegisterShopNameField() {
+    public void enterRegisterShopNameField(WebDriver driver) {
+        scrollToElement(registerShopNameField,driver);
         type(registerShopNameField,fakeShopName());
         log.info("Successfully entered Last Name");
     }
@@ -204,13 +209,18 @@ public class MyAccountPage extends CommonAPI {
         log.info("Successfully clicked on Not right now button");
     }
 
-    public void clickInsideTheShopURLField() {
+    public void clickInsideTheShopURLField(WebDriver driver) {
+        scrollToElement(registerShopURLField,driver);
+        waitFor(1);
         clickOn(registerShopURLField);
         log.info("The Shop URL field is automatically populated with The same data entered in Shop Name ");
     }
-    public void clickInsideTheShopNameField() {
+    public void clickInsideTheShopNameField(WebDriver driver) {
+        scrollToElement(registerShopNameField,driver);
+        waitFor(1);
         clickOn(registerShopNameField);
         log.info("Successfully clicked in side  Shop Name field");
+        waitFor(2);
     }
 
     //Enter a valid Email address in the " Email address " field. Under the Login form on the Left side
@@ -242,7 +252,9 @@ public class MyAccountPage extends CommonAPI {
         type(loginPasswordField,loginPasswordForCustomer);
         log.info("Successfully entered Password");
     }
-    public void clickOnLoginButton() {
+    public void clickOnLoginButton(WebDriver driver) {
+        scrollToElement(loginButton,driver);
+        waitFor(1);
         clickOn(loginButton);
         log.info("Successfully clicked on Login button");
     }
@@ -263,7 +275,8 @@ public class MyAccountPage extends CommonAPI {
         log.info("Successfully entered email address");
     }
 
-    public void enterRegisterPasswordField(String regPassword) {
+    public void enterRegisterPasswordField(String regPassword,WebDriver driver) {
+        scrollToElement(registerPasswordField,driver);
         type(registerPasswordField,regPassword);
         log.info("Successfully entered Password");
     }

@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 public class StoreListingPage extends CommonAPI {
     Logger log = LogManager.getLogger(StoreListingPage.class.getName());
@@ -66,12 +65,16 @@ public class StoreListingPage extends CommonAPI {
         log.info("displayed the results based on your search term successfully.");
     }
 
-    public void clickOnOussamaElectronicsStore() {
+    public void clickOnOussamaElectronicsStore(WebDriver driver) {
+        scrollToElement(oussamaElectronicsStore,driver);
+        waitFor(1);
         clickOn(oussamaElectronicsStore);
         log.info("Access the store page successfully ");
     }
 
-    public void typeYourName(String yourName) {
+    public void typeYourName(String yourName,WebDriver driver) {
+        scrollToElement(yourNameField,driver);
+        waitFor(1);
         type(yourNameField,yourName);
         log.info("Successfully entered Name");
     }

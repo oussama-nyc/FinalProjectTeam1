@@ -80,11 +80,14 @@ public class ShopPage extends CommonAPI {
         log.info("The price range set successfully.");
     }
 
-    public void orderByPriceLowToHigh() {
+    public void orderByPriceLowToHigh(WebDriver driver) {
+        scrollToElement(orderByOption,driver);
+        waitFor(1);
         selectOptionFromDropDown(orderByOption,"price");
         log.info("The results successfully ordered by price low to high.");
     }
-    public String getLowestProductTitleWithFilter() {
+    public String getLowestProductTitleWithFilter(WebDriver driver) {
+        scrollToElement(lowestProductWithFilter,driver);
         String text = getElementText(lowestProductWithFilter);
         log.info("The products displayed are filtered according to the price range set in the filter.");
         return text;

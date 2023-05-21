@@ -37,12 +37,8 @@ public class ComparePageTest extends CommonAPI {
         //Enter a valid Password in the " Password " field
         myAccountPage.enterValidPasswordLoginCustomer();
 
-        // scrolled down the page
-        scrollByAmount(0, 200);
-        log.info("Successfully scrolled down the page");
-
         //Click on the " Login " button to submit the form.
-        myAccountPage.clickOnLoginButton();
+        myAccountPage.clickOnLoginButton(getDriver());
 
         //Verify that the customer is redirected to the My Account page.
         String expectedMyAccountPageTitle = "My Account";
@@ -92,19 +88,12 @@ public class ComparePageTest extends CommonAPI {
         Assert.assertEquals(actualProduct2,expectedProduct2);
         log.info("The 2nd selected product are displayed on the Compare page Successfully");
 
-        // scrolled down the page
-        scrollByAmount(0, 700);
-
         //Remove the products from the Compare page
-        comparePage.clickOnToRemoveProductFromTheComparePage();
+        comparePage.clickOnToRemoveProductFromTheComparePage(getDriver());
 
         waitFor(2);
 
-        // scrolled down the page
-        scrollByAmount(0, 700);
-        log.info("Successfully scrolled down the page");
-
-        comparePage.clickOnToRemoveProductFromTheComparePage();
+        comparePage.clickOnToRemoveProductFromTheComparePage(getDriver());
 
         //Verify that the Compare page is empty
         String expectedEmptyComparePageText = "No products were added to the compare table";
@@ -169,19 +158,12 @@ public class ComparePageTest extends CommonAPI {
         Assert.assertEquals(actualProduct2,expectedProduct2);
         log.info("The 2nd selected product are displayed on the Compare page Successfully");
 
-        // scrolled down the page
-        scrollByAmount(0, 700);
-
         //Remove the products from the Compare page
-        comparePage.clickOnToRemoveProductFromTheComparePage();
+        comparePage.clickOnToRemoveProductFromTheComparePage(getDriver());
 
         waitFor(2);
 
-        // scrolled down the page
-        scrollByAmount(0, 700);
-        log.info("Successfully scrolled down the page");
-
-        comparePage.clickOnToRemoveProductFromTheComparePage();
+        comparePage.clickOnToRemoveProductFromTheComparePage(getDriver());
 
         //Verify that the Compare page is empty
         String expectedEmptyComparePageText = "No products were added to the compare table";

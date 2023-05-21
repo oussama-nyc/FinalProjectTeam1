@@ -1,7 +1,6 @@
 package finalProject.pages.oussama;
 
 import finalProject.base.CommonAPI;
-import finalProject.utility.Utility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -100,7 +99,6 @@ public class DashboardPage extends CommonAPI {
 
     public String getMyDashboardTitle() {
         String text = getElementText(MyDashboardTitle);
-        log.info("get error message text success");
         return text;
     }
 

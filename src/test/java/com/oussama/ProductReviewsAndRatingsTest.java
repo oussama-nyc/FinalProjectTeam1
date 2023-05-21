@@ -33,8 +33,7 @@ public class ProductReviewsAndRatingsTest extends CommonAPI {
         shopPage.clickOnTabletThinEliteBookRevolve();
 
         //Click on tab review
-        scrollByAmount(0,650);
-        singleProductPage.clickOnTabReviews();
+        singleProductPage.clickOnTabReviews(getDriver());
 
         //Select a star rating for the product from 1 to 5
         singleProductPage.clickOnFiveStar();

@@ -6,21 +6,15 @@ import finalProject.utility.ExcelReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.io.File;
-import java.util.List;
-
 public class CheckoutTest extends CommonAPI {
-
 
     Logger log = LogManager.getLogger(CheckoutTest.class.getName());
 
     //------------------------------------------------------------------------------------------------------- --------
     // ***************( Test case for Checkout For Logged In Users )**************************************************
     // ---------------------------------------------------------------------------------------------------------------
-
 
     @Test
     public void checkoutForLoggedInUsers() {
@@ -44,11 +38,8 @@ public class CheckoutTest extends CommonAPI {
         //Enter a valid Password
         myAccountPage.enterValidPasswordLoginCustomer();
 
-        // scrolled down the page
-        scrollByAmount(0, 200);
-
         //Click on the " Login " button
-        myAccountPage.clickOnLoginButton();
+        myAccountPage.clickOnLoginButton(getDriver());
 
         //Verify that the customer is redirected to the My Account page.
         String expectedMyAccountPageTitle = "My Account";
@@ -68,12 +59,11 @@ public class CheckoutTest extends CommonAPI {
         Assert.assertEquals(actualText,expectedText);
         log.info("The product is available and in stock.");
 
-        scrollByAmount(0,300);
         // Choose the desired quantity of the product to be added to the cart
-        singleProductPage.SelectProductQuantity();
+        singleProductPage.SelectProductQuantity(getDriver());
 
         // Click on the "Add to Cart" button
-        singleProductPage.clickOnAddProductToTheCart();
+        singleProductPage.clickOnAddProductToTheCart(getDriver());
 
         //Verify that the selected product added to your cart.
         String expectedAlertText = "View cart\n" +
@@ -94,10 +84,8 @@ public class CheckoutTest extends CommonAPI {
         //Enter a valid Last name in the " Last name " field
         checkoutPage.enterValidLastName("achour");
 
-        scrollByAmount(0,400);
         //Select a Country/Region from the " Country/Region  " field
-         //log.info("Successfully selected Country/Region");
-        checkoutPage.selectCountryRegion("US");
+        checkoutPage.selectCountryRegion("US",getDriver());
 
         //Enter a valid Street
         checkoutPage.enterValidAddress("17 Bolton Rd","Apt 100x");
@@ -105,12 +93,8 @@ public class CheckoutTest extends CommonAPI {
         //Enter a valid Town/City
         checkoutPage.enterValidTownCity("Bronx");
 
-         scrollByAmount(0,400);
-
         //Select a State from the "State" field
-        //log.info("Successfully selected State");
-        checkoutPage.selectValidStateCounty("NY");
-
+        checkoutPage.selectValidStateCounty("NY",getDriver());
 
         //Enter a valid ZIP Code in the ZIP Code
         checkoutPage.enterValidZIPCode("10462");
@@ -122,7 +106,7 @@ public class CheckoutTest extends CommonAPI {
         checkoutPage.enterValidEmail("oussama_nyc@hotmail.fr");
 
         //Choose the payment method: "Check payments" or "Cash on delivery".
-        checkoutPage.clickOnCashOnDeliveryOption();
+        checkoutPage.clickOnCashOnDeliveryOption(getDriver());
 
         //Accept the terms and conditions by ticking the checkbox.
         checkoutPage.acceptTheTermsAndConditions();
@@ -135,7 +119,6 @@ public class CheckoutTest extends CommonAPI {
         String expectedOrderConfirmationText = "Order received";
         String actualOrderConfirmationText = checkoutPage.getOrderReceivedAlertText();
         Assert.assertEquals(actualOrderConfirmationText,expectedOrderConfirmationText);
-        //log.info("The order is successfully confirmed.");
 
     }
 
@@ -167,12 +150,11 @@ public class CheckoutTest extends CommonAPI {
       Assert.assertEquals(actualText,expectedText);
       log.info("The product is available and in stock.");
 
-      scrollByAmount(0,300);
       // Choose the desired quantity of the product to be added to the cart
-      singleProductPage.SelectProductQuantity();
+      singleProductPage.SelectProductQuantity(getDriver());
 
       // Click on the "Add to Cart" button to add the product to the cart.
-      singleProductPage.clickOnAddProductToTheCart();
+      singleProductPage.clickOnAddProductToTheCart(getDriver());
 
       //Verify that the selected product added to your cart.
       String expectedAlertText = "View cart\n" +
@@ -193,26 +175,20 @@ public class CheckoutTest extends CommonAPI {
       //Enter a valid Last name in the " Last name " field
       checkoutPage.enterValidLastName(lastName);
 
-      scrollByAmount(0,400);
-
       //Select a Country/Region from the " Country/Region  " field
-      checkoutPage.selectCountryRegion(country);
+      checkoutPage.selectCountryRegion(country,getDriver());
 
       //Enter a valid Street address in the " Street address " field
       checkoutPage.enterValidAddress(streetAddress,apt);
 
-
       //Enter a valid Town/City in the " Town/City " field
       checkoutPage.enterValidTownCity(town);
 
-      scrollByAmount(0,400);
-
       //Select a State from the "State/County" field
-      checkoutPage.typeValidStateCounty(state);
+      checkoutPage.typeValidStateCounty(state,getDriver());
 
       //Enter a valid ZIP Code in the ZIP Code field
       checkoutPage.enterValidZIPCode(zipCode);
-
 
       //Enter a valid Phone in the Phone number field
       checkoutPage.enterValidPhoneNumber(phoneNumber);
@@ -220,10 +196,8 @@ public class CheckoutTest extends CommonAPI {
       //Enter a valid Email in the " Email " field
       checkoutPage.enterValidEmail(email);
 
-
       //Choose the payment method: "Check payments" or "Cash on delivery".
-      checkoutPage.clickOnCashOnDeliveryOption();
-
+      checkoutPage.clickOnCashOnDeliveryOption(getDriver());
 
       //Accept the terms and conditions by ticking the checkbox.
       checkoutPage.acceptTheTermsAndConditions();
@@ -236,7 +210,6 @@ public class CheckoutTest extends CommonAPI {
       String expectedOrderConfirmationText = "Order received";
       String actualOrderConfirmationText = checkoutPage.getOrderReceivedAlertText();
       Assert.assertEquals(actualOrderConfirmationText,expectedOrderConfirmationText);
-      //log.info("The order is successfully confirmed.");
 
   }
 

@@ -35,11 +35,8 @@ public class AddNewProductTest extends CommonAPI {
         //Enter a valid Password in the " Password " field
         myAccountPage.enterValidPasswordLoginVendor();
 
-        // scrolled down the page
-        scrollByAmount(0, 200);
-
         //Click on the " Login " button to submit the form.
-        myAccountPage.clickOnLoginButton();
+        myAccountPage.clickOnLoginButton(getDriver());
 
         //Verify that the vendor is redirected to the Dashboard page.
         String expectedMyDashboardPageTitle = "Dashboard";
