@@ -27,7 +27,7 @@ public class FilterTest extends CommonAPI {
         Assert.assertEquals(expectedTitle, actualTitle);
 
         // Click on the "Shop" button
-        headerPage.clickOnShopLink();
+        headerPage.clickOnShopLink(getDriver());
 
         // Select the price range filter option
         shopPage.scrollToFilterSlider(getDriver());

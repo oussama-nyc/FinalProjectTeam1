@@ -122,6 +122,7 @@ public class SingleProductPage extends CommonAPI {
 
     public void clickOnAddProductToTheCart(WebDriver driver) {
         scrollToElement(addToCartButton,driver);
+        waitFor(1);
         clickOn(addToCartButton);
         log.info("Successfully added the product to the cart.");
     }

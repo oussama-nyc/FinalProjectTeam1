@@ -160,12 +160,16 @@ public class MyAccountPage extends CommonAPI {
         log.info("Successfully entered Password");
     }
 
-    public void selectRegisterCustomerOption() {
+    public void selectRegisterCustomerOption(WebDriver driver) {
+        scrollToElement(registerCustomerOption,driver);
+        waitFor(1);
         clickOn(registerCustomerOption);
         log.info("The I am a customer registration type is selected Successfully");
     }
 
-    public void selectRegisterVendorOption() {
+    public void selectRegisterVendorOption(WebDriver driver) {
+        scrollToElement(registerVendorOption, driver);
+        waitFor(1);
         clickOn(registerVendorOption);
         log.info("The I am a customer registration type is selected Successfully");
     }
@@ -277,6 +281,7 @@ public class MyAccountPage extends CommonAPI {
 
     public void enterRegisterPasswordField(String regPassword,WebDriver driver) {
         scrollToElement(registerPasswordField,driver);
+        waitFor(1);
         type(registerPasswordField,regPassword);
         log.info("Successfully entered Password");
     }
@@ -286,22 +291,30 @@ public class MyAccountPage extends CommonAPI {
         log.info("Successfully cleared Reg Password Field");
     }
 
-    public String getShortPasswordStrengthAlertText() {
+    public String getShortPasswordStrengthAlertText(WebDriver driver) {
+        scrollToElement(shortPasswordStrengthAlertText,driver);
+        waitFor(1);
        String text =  getElementText(shortPasswordStrengthAlertText);
         log.info("A message displayed under the password field indicating that the password is very weak");
        return text;
     }
-    public String getBadPasswordStrengthAlertText() {
+    public String getBadPasswordStrengthAlertText(WebDriver driver) {
+        scrollToElement(badPasswordStrengthAlertText,driver);
+       waitFor(1);
         String text = getElementText(badPasswordStrengthAlertText);
         log.info("A message displayed under the password field indicating that the password is weak");
         return text;
     }
-    public String getGoodPasswordStrengthAlertText() {
+    public String getGoodPasswordStrengthAlertText(WebDriver driver) {
+        scrollToElement(goodPasswordStrengthAlertText,driver);
+        waitFor(1);
         String text = getElementText(goodPasswordStrengthAlertText);
         log.info("A message displayed under the password field indicating that the password is Medium");
         return text;
     }
-    public String getStrongPasswordStrengthAlertText() {
+    public String getStrongPasswordStrengthAlertText(WebDriver driver) {
+        scrollToElement(strongPasswordStrengthAlertText,driver);
+        waitFor(1);
       String text =  getElementText(strongPasswordStrengthAlertText);
         log.info("A message displayed under the password field indicating that the password is Strong");
       return text;

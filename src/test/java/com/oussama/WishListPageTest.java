@@ -48,11 +48,11 @@ public class WishListPageTest extends CommonAPI {
 
         //Verify that the Wishlist page is empty
         String expectedWishListPageText = "No products added to the wishlist";
-        String actualWishListPageText = wishListPage.getWishlistPageIsEmptyText();
+        String actualWishListPageText = wishListPage.getWishlistPageIsEmptyText(getDriver());
         Assert.assertEquals(actualWishListPageText,expectedWishListPageText);
 
         //Click on the "Shop" Link
-        headerPage.clickOnShopLink();
+        headerPage.clickOnShopLink(getDriver());
 
         //Choose a product from the shop, Click on the product to view its details.
         shopPage.clickOnTabletThinEliteBookRevolve();
@@ -61,7 +61,7 @@ public class WishListPageTest extends CommonAPI {
         shopPage.clickOnAddToWishListPageLink();
 
         //Click on the "Shop" Link
-        headerPage.clickOnShopLink();
+        headerPage.clickOnShopLink(getDriver());
 
         //Choose another product from the shop, Click on the product to view its details.
         shopPage.clickOnSmartphone6S128GBLTE();
@@ -91,7 +91,7 @@ public class WishListPageTest extends CommonAPI {
 
         waitFor(3);
 
-        wishListPage.clickOnToRemoveSecondProductFromTheWishListPage();
+        wishListPage.clickOnToRemoveSecondProductFromTheWishListPage(getDriver());
 
         //Verify that the 2nd Product successfully removed
         String expectedRemovedProductText2 = "Product successfully removed.";
@@ -100,7 +100,7 @@ public class WishListPageTest extends CommonAPI {
 
         //Verify that the wishlist page is empty
         String expectedWishListPageEmptyText = "No products added to the wishlist";
-        String actualWishListPageEmptyText = wishListPage.getWishlistPageIsEmptyText();
+        String actualWishListPageEmptyText = wishListPage.getWishlistPageIsEmptyText(getDriver());
         Assert.assertEquals(actualWishListPageEmptyText,expectedWishListPageEmptyText);
 
     }
@@ -126,11 +126,11 @@ public class WishListPageTest extends CommonAPI {
 
         //Verify that the Wishlist page is empty
         String expectedWishListPageText = "No products added to the wishlist";
-        String actualWishListPageText = wishListPage.getWishlistPageIsEmptyText();
+        String actualWishListPageText = wishListPage.getWishlistPageIsEmptyText(getDriver());
         Assert.assertEquals(actualWishListPageText,expectedWishListPageText);
 
         //Click on the "Shop" Link
-        headerPage.clickOnShopLink();
+        headerPage.clickOnShopLink(getDriver());
 
         //Choose a product from the shop, Click on the product to view its details.
         shopPage.clickOnTabletThinEliteBookRevolve();
@@ -140,7 +140,7 @@ public class WishListPageTest extends CommonAPI {
         shopPage.clickOnAddToWishListPageLink();
 
         //Click on the "Shop" Link
-        headerPage.clickOnShopLink();
+        headerPage.clickOnShopLink(getDriver());
 
         //Choose another product from the shop, Click on the product to view its details.
         shopPage.clickOnSmartphone6S128GBLTE();
@@ -170,7 +170,7 @@ public class WishListPageTest extends CommonAPI {
 
         waitFor(2);
 
-        wishListPage.clickOnToRemoveSecondProductFromTheWishListPage();
+        wishListPage.clickOnToRemoveSecondProductFromTheWishListPage(getDriver());
 
         //Verify that the 1st Product successfully removed
         String expectedRemovedProductText2 = "Product successfully removed.";
@@ -180,7 +180,7 @@ public class WishListPageTest extends CommonAPI {
 
         //Verify that the wishlist page is empty
         String expectedWishListPageEmptyText = "No products added to the wishlist";
-        String actualWishListPageEmptyText = wishListPage.getWishlistPageIsEmptyText();
+        String actualWishListPageEmptyText = wishListPage.getWishlistPageIsEmptyText(getDriver());
         Assert.assertEquals(actualWishListPageEmptyText,expectedWishListPageEmptyText);
 
     }
@@ -224,11 +224,11 @@ public class WishListPageTest extends CommonAPI {
 
         //Verify that the Wishlist page is empty
         String expectedWishListPageText = "No products added to the wishlist";
-        String actualWishListPageText = wishListPage.getWishlistPageIsEmptyText();
+        String actualWishListPageText = wishListPage.getWishlistPageIsEmptyText(getDriver());
         Assert.assertEquals(actualWishListPageText,expectedWishListPageText);
 
         //Click on the "Shop" Link
-        headerPage.clickOnShopLink();
+        headerPage.clickOnShopLink(getDriver());
 
         //Choose a product from the shop, Click on the product to view its details.
         shopPage.clickOnTabletThinEliteBookRevolve();
@@ -243,7 +243,7 @@ public class WishListPageTest extends CommonAPI {
         Assert.assertEquals(actualProduct2,expectedProduct2);
 
         //Click on the "Add to Cart" link to add the product to the cart
-        wishListPage.clickOnToAddToCartFromWishListPage();
+        wishListPage.clickOnToAddToCartFromWishListPage(getDriver());
 
         String expectedCartText = "Product added to cart successfully";
         String actualCartText = wishListPage.getProductAddedToCartAlertText(getDriver());
