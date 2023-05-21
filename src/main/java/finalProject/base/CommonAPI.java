@@ -94,7 +94,7 @@ public class CommonAPI {
             }
         }
         driver.quit();
-        log.info("browser close success");
+       log.info("browser close success");
     }
     @AfterSuite
     public void generateReport() {

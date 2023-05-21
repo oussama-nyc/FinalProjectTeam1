@@ -27,7 +27,6 @@ public class TrackYourOrderTest extends CommonAPI {
         //Click on the "Track Your Order" link to go to the Track Your Order page
          headerPage.clickOnTrackYourOrderLink();
 
-
         //Verify that the Order ID and Billing email fields are mandatory
         // by leaving them empty and clicking on the "Track" button.
         trackYourOrderPage.clickOnTrackButton();
@@ -46,7 +45,6 @@ public class TrackYourOrderTest extends CommonAPI {
         String actualInvalidAlert = trackYourOrderPage.getAlertErrorText();
         Assert.assertEquals(actualInvalidAlert,expectedInvalidAlert);
 
-
         //Verify that the order status is displayed correctly when the user enters valid input
         // in both the Order ID and Billing email fields.
         trackYourOrderPage.clearOrderIDField();
@@ -60,7 +58,6 @@ public class TrackYourOrderTest extends CommonAPI {
         Assert.assertEquals(actualValidAlert,expectedValidAlert);
 
        //Verify that the user is able to track other orders by entering a new Order ID.
-        //clickOn("a[title='Track Your Order']");
         headerPage.clickOnTrackYourOrderLink();
         trackYourOrderPage.enterOrderID("5572");
         trackYourOrderPage.enterOrderEmail("oussama_nyc@hotmail.fr");

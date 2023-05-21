@@ -18,7 +18,7 @@ public class RegisterTest extends CommonAPI {
      //---------------------------------------------------------------------------------------------------------------
      //**************************************( Test case for registering as a customer )******************************
      // --------------------------------------------------------------------------------------------------------------
-    @Test
+    @Test (priority = 1)
     public void RegisterAsCustomer()  {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());
@@ -58,7 +58,7 @@ public class RegisterTest extends CommonAPI {
      // ************************************( Test case for registering as a vendor )*********************************
      // --------------------------------------------------------------------------------------------------------------
 
-   @Test
+   @Test (priority = 2)
    public void RegisterAsVendor()  {
        MyAccountPage myAccountPage = new MyAccountPage(getDriver());
        HeaderPage headerPage = new HeaderPage(getDriver());

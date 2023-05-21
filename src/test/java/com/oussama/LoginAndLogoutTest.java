@@ -16,7 +16,7 @@ public class LoginAndLogoutTest extends CommonAPI {
 // ***************( Test case for Login and logout as a Customer and Verify Redirect to My Account Page )**************
 // --------------------------------------------------------------------------------------------------------------------
 
-    @Test
+    @Test (priority = 2)
     public void loginAndLogoutAsCustomer() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());
@@ -61,47 +61,47 @@ public class LoginAndLogoutTest extends CommonAPI {
  //--------------------------------------------------------------------------------------------------------------------
 // ***************( Test case for Login and logout  as a vendor and Verify Redirect to Dashboard page )**************
 // --------------------------------------------------------------------------------------------------------------------
- @Test
- public void loginAndLogoutAsVendor() {
-     MyAccountPage myAccountPage = new MyAccountPage(getDriver());
-     HeaderPage headerPage = new HeaderPage(getDriver());
-     DashboardPage dashboardPage = new DashboardPage(getDriver());
+    @Test (priority = 1)
+    public void loginAndLogoutAsVendor() {
+        MyAccountPage myAccountPage = new MyAccountPage(getDriver());
+        HeaderPage headerPage = new HeaderPage(getDriver());
+        DashboardPage dashboardPage = new DashboardPage(getDriver());
 
-     String expectedTitle = "Welcome to Worldwide Electronics Store";
-     String actualTitle = getCurrentTitle();
-     Assert.assertEquals(expectedTitle, actualTitle);
+        String expectedTitle = "Welcome to Worldwide Electronics Store";
+        String actualTitle = getCurrentTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
 
-     //Click on the "My Account" button located at the top right corner of the website's header
-     headerPage.clickOnMyAccountLink();
+        //Click on the "My Account" button located at the top right corner of the website's header
+        headerPage.clickOnMyAccountLink();
 
-     //Enter a valid Email address in the " Email address " field. Under the Login form on the Left side
-     myAccountPage.enterValidEmailLoginVendor();
+        //Enter a valid Email address in the " Email address " field. Under the Login form on the Left side
+        myAccountPage.enterValidEmailLoginVendor();
 
-     //Enter a valid Password in the " Password " field
-     myAccountPage.enterValidPasswordLoginVendor();
+        //Enter a valid Password in the " Password " field
+        myAccountPage.enterValidPasswordLoginVendor();
 
-     // scrolled down the page
-     scrollByAmount(0,200);
+        // scrolled down the page
+        scrollByAmount(0,200);
 
-     //Click on the " Login " button to submit the form.
-      myAccountPage.clickOnLoginButton();
+        //Click on the " Login " button to submit the form.
+        myAccountPage.clickOnLoginButton();
 
-     //Verify that the vendor is redirected to the Dashboard page.
-     String expectedMyDashboardPageTitle = "Dashboard";
-     String actualMyDashboardTitle = dashboardPage.getMyDashboardTitle();
-     Assert.assertEquals(actualMyDashboardTitle,expectedMyDashboardPageTitle);
-     log.info("Successfully redirected to dashboard page");
+        //Verify that the vendor is redirected to the Dashboard page.
+        String expectedMyDashboardPageTitle = "Dashboard";
+        String actualMyDashboardTitle = dashboardPage.getMyDashboardTitle();
+        Assert.assertEquals(actualMyDashboardTitle,expectedMyDashboardPageTitle);
+        log.info("Successfully redirected to dashboard page");
 
-     headerPage.clickOnMyAccountIcon();
-     waitFor(2);
+        headerPage.clickOnMyAccountIcon();
+        waitFor(2);
 
-     headerPage.hoverOverAndClickOnLogoutLink(getDriver());
+        headerPage.hoverOverAndClickOnLogoutLink(getDriver());
 
-     //Verify that the vendor is redirected to the Home page.
-     String expectedTitleAfterVendorLogout = "My Account – Welcome to Worldwide Electronics Store";
-     String actualTitleAfterVendorLogout = getCurrentTitle();
-     Assert.assertEquals(actualTitleAfterVendorLogout, expectedTitleAfterVendorLogout);
-     log.info("Successfully redirected to Home page");
- }
+        //Verify that the vendor is redirected to the Home page.
+        String expectedTitleAfterVendorLogout = "My Account – Welcome to Worldwide Electronics Store";
+        String actualTitleAfterVendorLogout = getCurrentTitle();
+        Assert.assertEquals(actualTitleAfterVendorLogout, expectedTitleAfterVendorLogout);
+        log.info("Successfully redirected to Home page");
+    }
 
 }
