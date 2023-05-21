@@ -4,7 +4,6 @@ import finalProject.base.CommonAPI;
 import finalProject.pages.oussama.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -39,12 +38,11 @@ public class CouponCodeTest extends CommonAPI {
         Assert.assertEquals(actualText,expectedText);
         log.info("The product is available and in stock.");
 
-        scrollByAmount(0,300);
         // Choose the desired quantity of the product to be added to the cart and
-        singleProductPage.SelectProductQuantity();
+        singleProductPage.SelectProductQuantity(getDriver());
 
         // Click on the "Add to Cart" button to add the product to the cart.
-        singleProductPage.clickOnAddProductToTheCart();
+        singleProductPage.clickOnAddProductToTheCart(getDriver());
 
         //Verify that the selected product added to your cart.
         String expectedAlertText = "View cart\n" +
@@ -58,33 +56,23 @@ public class CouponCodeTest extends CommonAPI {
 
         //Verify that the coupon code field only accepts valid codes by entering an invalid code
         // and verifying the error message.
-        cartPage.enterCouponCode("oussama80off");
-
-        waitFor(2);
+        cartPage.enterCouponCode("oussama80off",getDriver());
 
         String expectedInvalidAlert = "Coupon \"oussama80off\" does not exist!";
         String actualInvalidAlert = cartPage.getCouponAlertText();
         Assert.assertEquals(actualInvalidAlert,expectedInvalidAlert);
         log.info("Error message is displayed successfully");
 
-        waitFor(2);
-
         //Verify that expired coupons cannot be used
-        cartPage.enterCouponCode("oussama75off");
-
-        waitFor(2);
+        cartPage.enterCouponCode("oussama75off",getDriver());
 
         String expectedExpiredTextAlert = "This coupon has expired.";
         String actualExpiredTextAlert = cartPage.getCouponAlertText();
         Assert.assertEquals(actualExpiredTextAlert,expectedExpiredTextAlert);
         log.info("Error message is displayed successfully");
 
-        waitFor(2);
-
        // Verify that valid coupon can be used
-        cartPage.enterCouponCode("oussama50off");
-
-        waitFor(2);
+        cartPage.enterCouponCode("oussama50off",getDriver());
 
         String expectedValidTextAlert = "Coupon code applied successfully.";
         String actualValidTextAlert = cartPage.getCouponAppliedSuccessfullyText();
@@ -92,21 +80,15 @@ public class CouponCodeTest extends CommonAPI {
         log.info("Coupon code applied successfully.");
 
         // Verify that specific coupons can only apply to specific products
-        scrollByAmount(0,-200);
-        headerPage.typeOnSearchBar("Apple MacBook Pro MF841HN/A 13-inch Laptop");
+        headerPage.typeOnSearchBar("Apple MacBook Pro MF841HN/A 13-inch Laptop",getDriver());
         headerPage.pressEnterOnSearchBar();
-        scrollByAmount(0,300);
-        singleProductPage.clickOnAddProductToTheCart();
+        singleProductPage.clickOnAddProductToTheCart(getDriver());
         singleProductPage.clickOnViewCartButton();
-        scrollByAmount(0,200);
 
-        cartPage.enterCouponCode("MacBookPro30Off");
+        cartPage.enterCouponCode("MacBookPro30Off",getDriver());
 
-        waitFor(2);
-
-        scrollByAmount(0,400);
         String expectedSpecificCouponsTextAlert = "Coupon: macbookpro30off";
-        String actualSpecificCouponsTextAlert = cartPage.getSpecificProductsCouponText();
+        String actualSpecificCouponsTextAlert = cartPage.getSpecificProductsCouponText(getDriver());
         Assert.assertEquals(actualSpecificCouponsTextAlert,expectedSpecificCouponsTextAlert);
         log.info("Coupon code MacBookPro30Off applied successfully.");
     }

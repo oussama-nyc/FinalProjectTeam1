@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
+
 
 public class CartPage extends CommonAPI {
     Logger log = LogManager.getLogger(CartPage.class.getName());
@@ -51,16 +51,21 @@ public class CartPage extends CommonAPI {
         log.info("The checkout page is displayed successfully.");
     }
 
-    public void enterCouponCode(String couponCode) {
+    public void enterCouponCode(String couponCode,WebDriver driver) {
+        scrollToElement(couponCodeField,driver);
+        waitFor(1);
         clear(couponCodeField);
         type(couponCodeField,couponCode);
         clickOn(applyCouponButton);
         log.info("Successfully entering a coupon code");
+        waitFor(2);
     }
 
     public String getCouponAlertText() {
         String text = getElementText(couponAlertText);
+        waitFor(2);
         return text;
+
     }
 
     public String getCouponAppliedSuccessfullyText() {
@@ -69,7 +74,9 @@ public class CartPage extends CommonAPI {
     }
 
 
-    public String getSpecificProductsCouponText() {
+    public String getSpecificProductsCouponText(WebDriver driver) {
+        scrollToElement(specificProductsCouponText,driver);
+        waitFor(1);
         String text = getElementText(specificProductsCouponText);
         return text;
     }

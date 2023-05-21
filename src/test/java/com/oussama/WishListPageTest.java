@@ -34,11 +34,8 @@ public class WishListPageTest extends CommonAPI {
         //Enter a valid Password in the " Password " field
         myAccountPage.enterValidPasswordLoginCustomer();
 
-        // scrolled down the page
-        scrollByAmount(0, 200);
-
         //Click on the " Login " button
-        myAccountPage.clickOnLoginButton();
+        myAccountPage.clickOnLoginButton(getDriver());
 
         //Verify that the customer is redirected to the My Account page.
         String expectedMyAccountPageTitle = "My Account";
@@ -53,7 +50,6 @@ public class WishListPageTest extends CommonAPI {
         String expectedWishListPageText = "No products added to the wishlist";
         String actualWishListPageText = wishListPage.getWishlistPageIsEmptyText();
         Assert.assertEquals(actualWishListPageText,expectedWishListPageText);
-
 
         //Click on the "Shop" Link
         headerPage.clickOnShopLink();
@@ -73,19 +69,16 @@ public class WishListPageTest extends CommonAPI {
         //Click on the "Add to wishlist" link to add it to the wishlist page.
         shopPage.clickOnAddToWishListPageLink();
 
-        //Click on the "wishlist" icon go to the wishlist page.
+        //Click on the "wishlist" icon to go to the wishlist page.
         headerPage.clickOnWishlistIcon();
-
-        // scrolled down the page
-        scrollByAmount(0, 200);
 
         //Verify that the two products are displayed on the wishlist page.
         String expectedProduct1 = "Smartphone 6S 128GB LTE";
-        String actualProduct1 = wishListPage.getSmartphoneLTEOnWishListTitle();
+        String actualProduct1 = wishListPage.getSmartphoneLTEOnWishListTitle(getDriver());
         Assert.assertEquals(actualProduct1,expectedProduct1);
 
         String expectedProduct2 = "Tablet Thin EliteBook Revolve 810 G6";
-        String actualProduct2 = wishListPage.getTabletThinEliteBooOnWishListTitle();
+        String actualProduct2 = wishListPage.getTabletThinEliteBooOnWishListTitle(getDriver());
         Assert.assertEquals(actualProduct2,expectedProduct2);
 
         //Remove the products from the wishlist page
@@ -117,7 +110,7 @@ public class WishListPageTest extends CommonAPI {
     // ***********************************( Test Wish List Page For Guest Users )*************************************
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test (priority = 3)
+    @Test (priority = 2)
     public void wishListPageForGuestUsers() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());
@@ -158,16 +151,13 @@ public class WishListPageTest extends CommonAPI {
         //Click on the "wishlist" icon go to the wishlist page.
         headerPage.clickOnWishlistIcon();
 
-        // scrolled down the page
-        scrollByAmount(0, 200);
-
         //Verify that the two products are displayed on the wishlist page.
         String expectedProduct1 = "Smartphone 6S 128GB LTE";
-        String actualProduct1 = wishListPage.getSmartphoneLTEOnWishListTitle();
+        String actualProduct1 = wishListPage.getSmartphoneLTEOnWishListTitle(getDriver());
         Assert.assertEquals(actualProduct1,expectedProduct1);
 
         String expectedProduct2 = "Tablet Thin EliteBook Revolve 810 G6";
-        String actualProduct2 = wishListPage.getTabletThinEliteBooOnWishListTitle();
+        String actualProduct2 = wishListPage.getTabletThinEliteBooOnWishListTitle(getDriver());
         Assert.assertEquals(actualProduct2,expectedProduct2);
 
         //Remove the products from the wishlist page
@@ -199,7 +189,7 @@ public class WishListPageTest extends CommonAPI {
     // ***************( Test Case For Adding Wishlist Items To The Cart )*********
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test (priority = 2)
+    @Test (priority = 3)
     public void addingWishlistItemsToTheCart() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());
@@ -220,11 +210,8 @@ public class WishListPageTest extends CommonAPI {
         //Enter a valid Password in the " Password " field
         myAccountPage.enterValidPasswordLoginVendor();
 
-        // scrolled down the page
-        scrollByAmount(0, 200);
-
         //Click on the " Login " button
-        myAccountPage.clickOnLoginButton();
+        myAccountPage.clickOnLoginButton(getDriver());
 
         //Verify that the vendor is redirected to the Dashboard page.
         String expectedMyDashboardPageTitle = "Dashboard";
@@ -251,20 +238,15 @@ public class WishListPageTest extends CommonAPI {
 
         headerPage.clickOnWishlistIcon();
 
-        // scrolled down the page
-        scrollByAmount(0, 300);
-
         String expectedProduct2 = "Tablet Thin EliteBook Revolve 810 G6";
-        String actualProduct2 = wishListPage.getTabletThinEliteBooOnWishListTitle();
+        String actualProduct2 = wishListPage.getTabletThinEliteBooOnWishListTitle(getDriver());
         Assert.assertEquals(actualProduct2,expectedProduct2);
 
         //Click on the "Add to Cart" link to add the product to the cart
         wishListPage.clickOnToAddToCartFromWishListPage();
 
-        scrollByAmount(0,-400);
-
         String expectedCartText = "Product added to cart successfully";
-        String actualCartText = wishListPage.getProductAddedToCartAlertText();
+        String actualCartText = wishListPage.getProductAddedToCartAlertText(getDriver());
         Assert.assertEquals(actualCartText,expectedCartText);
 
     }

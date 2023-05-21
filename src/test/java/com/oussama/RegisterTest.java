@@ -1,6 +1,5 @@
 package com.oussama;
 
-
 import finalProject.pages.oussama.HeaderPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -8,7 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import finalProject.base.CommonAPI;
 import finalProject.pages.oussama.DashboardPage;
-import finalProject.pages.oussama.HomePage;
 import finalProject.pages.oussama.MyAccountPage;
 
 public class RegisterTest extends CommonAPI {
@@ -27,27 +25,22 @@ public class RegisterTest extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
 
-        //Click on the "My Account" button located at the top right corner of the website's header
-
+        //Click on the "My Account" Link
         headerPage.clickOnMyAccountLink();
-        //Enter a valid Email address in the " Email address " field. Under the registration form on the right side
+
+        //Enter a valid Email address in the " Email address " field.
         myAccountPage.enterRegisterEmailFieldFakeData();
 
         //Enter a valid Password in the " Password " field
-        myAccountPage.enterRegisterPasswordFieldFakeData();
+        myAccountPage.enterRegisterPasswordFieldFakeData(getDriver());
 
         //Select I am a customer as the registration type.
         myAccountPage.selectRegisterCustomerOption();
 
-        // scrolled down the page
-        scrollByAmount(0,400);
-
         //Click on the " Register " button to submit the form.
-        myAccountPage.clickOnRegisterButton();
+        myAccountPage.clickOnRegisterButton(getDriver());
 
         //Verify that the customer is redirected to the My Account page.
-        waitFor(1);
-
         String expectedMyAccountPageTitle = "My Account";
         String actualMyAccountPageTitle = myAccountPage.getMyAccountTitle();
         Assert.assertEquals(actualMyAccountPageTitle,expectedMyAccountPageTitle);
@@ -58,7 +51,7 @@ public class RegisterTest extends CommonAPI {
      // ************************************( Test case for registering as a vendor )*********************************
      // --------------------------------------------------------------------------------------------------------------
 
-   @Test (priority = 2)
+    @Test (priority = 2)
    public void RegisterAsVendor()  {
        MyAccountPage myAccountPage = new MyAccountPage(getDriver());
        HeaderPage headerPage = new HeaderPage(getDriver());
@@ -68,20 +61,17 @@ public class RegisterTest extends CommonAPI {
         String actualTitle = getCurrentTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
 
-        //Click on the "My Account" button located at the top right corner of the website's header
+        //Click on the "My Account" Link
        headerPage.clickOnMyAccountLink();
 
-        //Enter a valid Email address in the " Email address " field. Under the registration form on the right side
+        //Enter a valid Email address in the " Email address " field.
         myAccountPage.enterRegisterEmailFieldFakeData();
 
         //Select I am a vendor as the registration type.
         myAccountPage.selectRegisterVendorOption();
 
-        // scrolled down the page
-        scrollByAmount(0,400);
-
         //Enter a valid Password in the " Password " field
-        myAccountPage.enterRegisterPasswordFieldFakeData();
+        myAccountPage.enterRegisterPasswordFieldFakeData(getDriver());
 
         //Enter a valid First Name in the " First Name " field
         myAccountPage.enterRegisterFirstNameField();
@@ -89,20 +79,16 @@ public class RegisterTest extends CommonAPI {
         //Enter a valid Last Name  in the " Last Name  " field
         myAccountPage.enterRegisterLastNameField();
 
-        // scrolled down the page
-        scrollByAmount(0,200);
-
         //Enter a valid Shop Name  in the " Shop Name  " field
-        myAccountPage.enterRegisterShopNameField();
+        myAccountPage.enterRegisterShopNameField(getDriver());
 
         //Click inside The  " Shop URL"  field.
-        myAccountPage.clickInsideTheShopURLField();
+        myAccountPage.clickInsideTheShopURLField(getDriver());
 
         //Click inside The  " Shop Name"  field.
-        myAccountPage.clickInsideTheShopNameField();
+        myAccountPage.clickInsideTheShopNameField(getDriver());
 
         //Verify that A message is displayed above the Shop URL field indicating whether the shop URL is Available.
-        waitFor(2);
         String expectedDisplayedText = "Available";
         String actualDisplayedText = myAccountPage.getTextDisplayedAboveTheShopURL();
         Assert.assertEquals(actualDisplayedText,expectedDisplayedText);
@@ -112,7 +98,7 @@ public class RegisterTest extends CommonAPI {
         myAccountPage.enterRegisterPhoneNumberField();
 
         //Click on the " Register " button to submit the form.
-        myAccountPage.clickOnRegisterButton();
+        myAccountPage.clickOnRegisterButton(getDriver());
 
         //Click on " Not right now " button to skip store configuration steps
         myAccountPage.skipStoreConfigurationSteps();
@@ -122,7 +108,6 @@ public class RegisterTest extends CommonAPI {
         String actualMyDashboardTitle = dashboardPage.getMyDashboardTitle();
         Assert.assertEquals(actualMyDashboardTitle,expectedMyDashboardPageTitle);
         log.info("Successfully redirected to dashboard page");
-
    }
 
 }

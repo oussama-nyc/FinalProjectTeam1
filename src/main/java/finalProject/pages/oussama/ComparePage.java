@@ -53,7 +53,9 @@ public class ComparePage extends CommonAPI {
         return text;
     }
 
-    public void clickOnToRemoveProductFromTheComparePage() {
+    public void clickOnToRemoveProductFromTheComparePage(WebDriver driver) {
+        scrollToElement(RemoveProductFromTheComparePageIcon,driver);
+        waitFor(1);
         clickOn(RemoveProductFromTheComparePageIcon);
         log.info("Product are successfully removed from the Compare page.");
     }

@@ -31,15 +31,11 @@ public class ContactStoreVendorTest extends CommonAPI {
         storeListingPage.enterSearchTerm("Oussama Electronics Store");
         storeListingPage.clickOnApplyButton();
 
-        // Click on the store name in the search results to access the store page.
-        scrollByAmount(0,500);
-        storeListingPage.clickOnOussamaElectronicsStore();
+        storeListingPage.clickOnOussamaElectronicsStore(getDriver());
 
         // Fill out the message form with a valid name, email, and message content.
         // Click on the "Send Message" button to submit the message.
-        scrollByAmount(0,2000);
-
-        storeListingPage.typeYourName("maryam");
+        storeListingPage.typeYourName("maryam",getDriver());
         storeListingPage.typeYourEmail("maryam@gmail.com");
         storeListingPage.typeYourMessage("Hey there, how i can track my order? ");
         storeListingPage.clickOnSendMessage();

@@ -32,9 +32,7 @@ public class PasswordStrengthValidation extends CommonAPI {
 
         //********************( Very weak )**************************
 
-        scrollByAmount(0,300);
-
-        myAccountPage.enterRegisterPasswordField("Qwerty");
+        myAccountPage.enterRegisterPasswordField("Qwerty",getDriver());
 
         waitFor(2);
 
@@ -48,7 +46,7 @@ public class PasswordStrengthValidation extends CommonAPI {
         //Clear RegPassword Field
         myAccountPage.clearRegPasswordField();
 
-        myAccountPage.enterRegisterPasswordField("Qwerty&");
+        myAccountPage.enterRegisterPasswordField("Qwerty&",getDriver());
 
         waitFor(2);
 
@@ -62,7 +60,7 @@ public class PasswordStrengthValidation extends CommonAPI {
         //Clear RegPassword Field
         myAccountPage.clearRegPasswordField();
 
-        myAccountPage.enterRegisterPasswordField("Qwerty&1234567");
+        myAccountPage.enterRegisterPasswordField("Qwerty&1234567",getDriver());
         waitFor(2);
 
         //Verify that A message is displayed under the password field indicating that the password is Medium
@@ -75,7 +73,7 @@ public class PasswordStrengthValidation extends CommonAPI {
         //Clear RegPassword Field
         myAccountPage.clearRegPasswordField();
 
-        myAccountPage.enterRegisterPasswordField("Qwerty&1234567891011");
+        myAccountPage.enterRegisterPasswordField("Qwerty&1234567891011",getDriver());
 
         waitFor(2);
 

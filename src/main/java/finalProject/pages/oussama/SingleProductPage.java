@@ -69,7 +69,9 @@ public class SingleProductPage extends CommonAPI {
         return text;
     }
 
-    public void clickOnTabReviews() {
+    public void clickOnTabReviews(WebDriver driver) {
+        scrollToElement(tabReviews,driver);
+        waitFor(1);
         clickOn(tabReviews);
         log.info("Reviews Tap opened successfully");
     }
@@ -110,13 +112,16 @@ public class SingleProductPage extends CommonAPI {
         return text;
     }
 
-    public void SelectProductQuantity() {
+    public void SelectProductQuantity(WebDriver driver) {
+        scrollToElement(productQuantityField,driver);
+        waitFor(1);
         clear(productQuantityField);
         type(productQuantityField,"3");
         log.info("Successfully selected the desired quantity of the product.");
     }
 
-    public void clickOnAddProductToTheCart() {
+    public void clickOnAddProductToTheCart(WebDriver driver) {
+        scrollToElement(addToCartButton,driver);
         clickOn(addToCartButton);
         log.info("Successfully added the product to the cart.");
     }

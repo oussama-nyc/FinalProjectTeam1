@@ -73,7 +73,8 @@ public class HeaderPage extends CommonAPI {
         log.info("click on logout link success");
     }
 
-    public void typeOnSearchBar(String yourSearchTerm) {
+    public void typeOnSearchBar(String yourSearchTerm,WebDriver driver) {
+        scrollToElement(searchBar,driver);
         type(searchBar,yourSearchTerm);
         log.info("The search query is entered correctly and without any errors.");
     }
@@ -92,7 +93,9 @@ public class HeaderPage extends CommonAPI {
         log.info("The My Account page opened successfully.");
     }
 
-    public void clickOnContactUsLink() {
+    public void clickOnContactUsLink(WebDriver driver) {
+        scrollToElement(contactUsPageLink,driver);
+        waitFor(1);
         clickOn(contactUsPageLink);
         log.info("The contact us page opened successfully.");
     }

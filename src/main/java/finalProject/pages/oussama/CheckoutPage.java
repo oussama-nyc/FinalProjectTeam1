@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
+
 
 public class CheckoutPage extends CommonAPI {
     Logger log = LogManager.getLogger(CheckoutPage.class.getName());
@@ -111,7 +111,8 @@ public class CheckoutPage extends CommonAPI {
         log.info("Successfully entered email");
     }
 
-    public void clickOnCashOnDeliveryOption() {
+    public void clickOnCashOnDeliveryOption(WebDriver driver) {
+        scrollToElement(CashOnDeliveryOption,driver);
         waitFor(2);
         clickOn(CashOnDeliveryOption);
         log.info("Successfully selected payment method ");
@@ -135,19 +136,25 @@ public class CheckoutPage extends CommonAPI {
         return text;
     }
 
-    public void selectCountryRegion(String CountryCode) {
+    public void selectCountryRegion(String CountryCode,WebDriver driver) {
+        scrollToElement(countryRegionField,driver);
+        waitFor(1);
         selectOptionFromDropDown(countryRegionField,CountryCode);
         log.info("Successfully selected Country/Region");
     }
 
 
-    public void typeValidStateCounty(String stateCounty) {
+    public void typeValidStateCounty(String stateCounty,WebDriver driver) {
+        scrollToElement(stateCountyField,driver);
+        waitFor(1);
         clear(stateCountyField);
         type(stateCountyField,stateCounty);
         log.info("Successfully selected State/County");
     }
 
-    public void selectValidStateCounty(String stateCountyCode) {
+    public void selectValidStateCounty(String stateCountyCode,WebDriver driver) {
+        scrollToElement(stateCountyField,driver);
+        waitFor(1);
         selectOptionFromDropDown(stateCountyField,stateCountyCode);
         log.info("Successfully selected State/County");
     }

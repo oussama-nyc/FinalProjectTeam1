@@ -26,7 +26,7 @@ public class SearchTest extends CommonAPI {
         Assert.assertEquals(expectedTitle, actualTitle);
 
         //Enter a valid search query in the search box.
-        headerPage.typeOnSearchBar("Full Color LaserJet Pro M452dn");
+        headerPage.typeOnSearchBar("Full Color LaserJet Pro M452dn",getDriver());
 
        // Click on the search button or press Enter.
         headerPage.pressEnterOnSearchBar();
@@ -38,7 +38,7 @@ public class SearchTest extends CommonAPI {
         log.info("The search results page is displayed and contains relevant results.");
 
        // Repeat the search with another query and verify the results.
-        headerPage.typeOnSearchBar("Wireless Audio System Multiroom 360");
+        headerPage.typeOnSearchBar("Wireless Audio System Multiroom 360",getDriver());
 
         // Click on the search button or press Enter.
         headerPage.pressEnterOnSearchBar();
