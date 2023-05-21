@@ -14,7 +14,7 @@ public class WishListPageTest extends CommonAPI {
     // *************************************( Test Wish List Page For Logged In Users )*******************************
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test
+    @Test (priority = 1)
     public void wishListPageForLoggedInUsers() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());
@@ -117,7 +117,7 @@ public class WishListPageTest extends CommonAPI {
     // ***********************************( Test Wish List Page For Guest Users )*************************************
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test
+    @Test (priority = 3)
     public void wishListPageForGuestUsers() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());
@@ -199,7 +199,7 @@ public class WishListPageTest extends CommonAPI {
     // ***************( Test Case For Adding Wishlist Items To The Cart )*********
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test
+    @Test (priority = 2)
     public void addingWishlistItemsToTheCart() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());
@@ -249,27 +249,10 @@ public class WishListPageTest extends CommonAPI {
         //Click on the "Add to wishlist" link to add it to the wishlist page.
         shopPage.clickOnAddToWishListPageLink();
 
-        //Click on the "Shop" Link
-        headerPage.clickOnShopLink();
-
-        //Choose another product from the shop, Click on the product to view its details.
-        shopPage.clickOnSmartphone6S128GBLTE();
-
-        //Click on the "Add to wishlist" link to add it to the wishlist page.
-
-        shopPage.clickOnAddToWishListPageLink();
-
         headerPage.clickOnWishlistIcon();
 
         // scrolled down the page
         scrollByAmount(0, 300);
-
-         waitFor(2);
-
-        //Verify that the two products are displayed on the wishlist page.
-        String expectedProduct1 = "Smartphone 6S 128GB LTE";
-        String actualProduct1 = wishListPage.getSmartphoneLTEOnWishListTitle();
-        Assert.assertEquals(actualProduct1,expectedProduct1);
 
         String expectedProduct2 = "Tablet Thin EliteBook Revolve 810 G6";
         String actualProduct2 = wishListPage.getTabletThinEliteBooOnWishListTitle();

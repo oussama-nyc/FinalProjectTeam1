@@ -22,7 +22,7 @@ public class CheckoutTest extends CommonAPI {
     // ---------------------------------------------------------------------------------------------------------------
 
 
-   // @Test
+    @Test
     public void checkoutForLoggedInUsers() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());
@@ -127,8 +127,6 @@ public class CheckoutTest extends CommonAPI {
         //Accept the terms and conditions by ticking the checkbox.
         checkoutPage.acceptTheTermsAndConditions();
 
-
-
         //Click on the "Place order" button.
         checkoutPage.clickOnPlaceOrderButton();
 
@@ -141,19 +139,11 @@ public class CheckoutTest extends CommonAPI {
 
     }
 
-
     //---------------------------------------------------------------------------------------------------------------
     // ***************************( Test case for Checkout For Guest Users )****************************************
     // ---------------------------------------------------------------------------------------------------------------
 
-//    @DataProvider(name = "checkoutForGuestUsers")
-//    public Object [][] getData(){
-//        Object[][] data={{"Tom","Jerry","GB","4 Royal Oak Way North","Apt N","DAVENTRY","Northamptonshire","NN11 8QL","1234567890","guest1@gmail.com"},{"Jasper","Jinx","GB","10 North holland st","Apt 13C","COLCHESTER","Abberton","WR10 8ql","1234567890","guest2@gmail.com"}};
-//        return data;
-//    }
-
-
-  @Test (dataProvider = "checkoutForGuestUsers",dataProviderClass = ExcelReader.class )
+    @Test (dataProvider = "checkoutForGuestUsers",dataProviderClass = ExcelReader.class )
     public void checkoutForGuestUsers(String firstName,String lastName,String country,String streetAddress,String apt,String town,String state,String zipCode,String phoneNumber,String email) {
       HeaderPage headerPage = new HeaderPage(getDriver());
       ShopPage shopPage = new ShopPage(getDriver());
@@ -248,8 +238,6 @@ public class CheckoutTest extends CommonAPI {
       Assert.assertEquals(actualOrderConfirmationText,expectedOrderConfirmationText);
       //log.info("The order is successfully confirmed.");
 
-
   }
-
 
 }
