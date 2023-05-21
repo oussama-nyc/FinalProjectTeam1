@@ -46,7 +46,9 @@ public class CartPage extends CommonAPI {
     // ---------------------------------------------------------------------------------------------------------------
 
 
-    public void clickOnProceedToCheckoutButton() {
+    public void clickOnProceedToCheckoutButton(WebDriver driver) {
+        scrollToElement(proceedToCheckoutButton,driver);
+        waitFor(1);
         clickOn(proceedToCheckoutButton);
         log.info("The checkout page is displayed successfully.");
     }

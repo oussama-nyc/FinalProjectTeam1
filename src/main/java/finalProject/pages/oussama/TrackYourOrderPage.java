@@ -39,8 +39,9 @@ public class TrackYourOrderPage extends CommonAPI {
     // ****************************************( Reusable Methods )***************************************************
     // ---------------------------------------------------------------------------------------------------------------
 
-
-    public void clickOnTrackButton() {
+    public void clickOnTrackButton(WebDriver driver) {
+        scrollToElement(trackButton,driver);
+        waitFor(1);
         clickOn(trackButton);
         log.info("successfully clicked on the Track button.");
     }
@@ -56,7 +57,6 @@ public class TrackYourOrderPage extends CommonAPI {
         log.info("the order status is displayed successfully");
         return text;
     }
-
 
     public void enterOrderID(String orderID) {
         type(orderIDField,orderID);

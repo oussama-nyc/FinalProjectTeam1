@@ -29,7 +29,7 @@ public class TrackYourOrderTest extends CommonAPI {
 
         //Verify that the Order ID and Billing email fields are mandatory
         // by leaving them empty and clicking on the "Track" button.
-        trackYourOrderPage.clickOnTrackButton();
+        trackYourOrderPage.clickOnTrackButton(getDriver());
 
         String expectedTextAlert = "Please enter a valid order ID";
         String actualTextAlert = trackYourOrderPage.getAlertErrorText();
@@ -39,7 +39,7 @@ public class TrackYourOrderTest extends CommonAPI {
         //  in either the Order ID or Billing email field .
         trackYourOrderPage.enterOrderID("5513");
         trackYourOrderPage.enterOrderEmail("guest@gmail.com");
-        trackYourOrderPage.clickOnTrackButton();
+        trackYourOrderPage.clickOnTrackButton(getDriver());
 
         String expectedInvalidAlert = "Sorry, the order could not be found. Please contact us if you are having difficulty finding your order details.";
         String actualInvalidAlert = trackYourOrderPage.getAlertErrorText();
@@ -51,7 +51,7 @@ public class TrackYourOrderTest extends CommonAPI {
         trackYourOrderPage.clearOrderEmailField();
         trackYourOrderPage.enterOrderID("5573");
         trackYourOrderPage.enterOrderEmail("guest@gmail.com");
-        trackYourOrderPage.clickOnTrackButton();
+        trackYourOrderPage.clickOnTrackButton(getDriver());
 
         String expectedValidAlert = "Order details";
         String actualValidAlert = trackYourOrderPage.getOrderDetailsTitle();
@@ -61,7 +61,7 @@ public class TrackYourOrderTest extends CommonAPI {
         headerPage.clickOnTrackYourOrderLink();
         trackYourOrderPage.enterOrderID("5572");
         trackYourOrderPage.enterOrderEmail("oussama_nyc@hotmail.fr");
-        trackYourOrderPage.clickOnTrackButton();
+        trackYourOrderPage.clickOnTrackButton(getDriver());
 
         String expectedText = "Order details";
         String actualText = trackYourOrderPage.getOrderDetailsTitle();

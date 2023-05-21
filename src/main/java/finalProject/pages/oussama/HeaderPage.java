@@ -62,7 +62,9 @@ public class HeaderPage extends CommonAPI {
         log.info("The My Account page opened successfully.");
     }
 
-    public void clickOnShopLink() {
+    public void clickOnShopLink(WebDriver driver) {
+        scrollToElement(shopLink,driver);
+        waitFor(1);
         clickOn(shopLink);
         log.info("The Shop page opened successfully.");
     }

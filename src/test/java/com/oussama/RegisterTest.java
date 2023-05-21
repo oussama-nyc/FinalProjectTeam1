@@ -35,7 +35,7 @@ public class RegisterTest extends CommonAPI {
         myAccountPage.enterRegisterPasswordFieldFakeData(getDriver());
 
         //Select I am a customer as the registration type.
-        myAccountPage.selectRegisterCustomerOption();
+        myAccountPage.selectRegisterCustomerOption(getDriver());
 
         //Click on the " Register " button to submit the form.
         myAccountPage.clickOnRegisterButton(getDriver());
@@ -68,7 +68,7 @@ public class RegisterTest extends CommonAPI {
         myAccountPage.enterRegisterEmailFieldFakeData();
 
         //Select I am a vendor as the registration type.
-        myAccountPage.selectRegisterVendorOption();
+        myAccountPage.selectRegisterVendorOption(getDriver());
 
         //Enter a valid Password in the " Password " field
         myAccountPage.enterRegisterPasswordFieldFakeData(getDriver());

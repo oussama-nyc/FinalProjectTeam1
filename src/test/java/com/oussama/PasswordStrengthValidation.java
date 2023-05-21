@@ -38,7 +38,7 @@ public class PasswordStrengthValidation extends CommonAPI {
 
         //Verify that A message is displayed under the password field indicating that the password is Very weak
         String expectedDisplayedVeryWeakText = "Very weak - Please enter a stronger password.";
-        String actualDisplayedVeryWeakText = myAccountPage.getShortPasswordStrengthAlertText();
+        String actualDisplayedVeryWeakText = myAccountPage.getShortPasswordStrengthAlertText(getDriver());
         Assert.assertEquals(actualDisplayedVeryWeakText,expectedDisplayedVeryWeakText);
 
         //********************( Weak strength password )**************************
@@ -52,7 +52,7 @@ public class PasswordStrengthValidation extends CommonAPI {
 
         //Verify that A message is displayed under the password field indicating that the password is Weak
         String expectedDisplayedWeakText = "Weak - Please enter a stronger password.";
-        String actualDisplayedWeakText = myAccountPage.getBadPasswordStrengthAlertText();
+        String actualDisplayedWeakText = myAccountPage.getBadPasswordStrengthAlertText(getDriver());
         Assert.assertEquals(actualDisplayedWeakText,expectedDisplayedWeakText);
 
         //********************( Medium strength password )**************************
@@ -65,7 +65,7 @@ public class PasswordStrengthValidation extends CommonAPI {
 
         //Verify that A message is displayed under the password field indicating that the password is Medium
         String expectedDisplayedMediumText = "Medium";
-        String actualDisplayedMediumText = myAccountPage.getGoodPasswordStrengthAlertText();
+        String actualDisplayedMediumText = myAccountPage.getGoodPasswordStrengthAlertText(getDriver());
         Assert.assertEquals(actualDisplayedMediumText,expectedDisplayedMediumText);
 
         //********************( Strong strength password )**************************
@@ -79,7 +79,7 @@ public class PasswordStrengthValidation extends CommonAPI {
 
         //Verify that A message is displayed under the password field indicating that the password is Strong
         String expectedDisplayedStrongText = "Strong";
-        String actualDisplayedStrongText = myAccountPage.getStrongPasswordStrengthAlertText();
+        String actualDisplayedStrongText = myAccountPage.getStrongPasswordStrengthAlertText(getDriver());
         Assert.assertEquals(actualDisplayedStrongText,expectedDisplayedStrongText);
 
     }

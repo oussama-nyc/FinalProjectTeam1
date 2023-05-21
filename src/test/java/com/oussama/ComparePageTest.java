@@ -55,7 +55,7 @@ public class ComparePageTest extends CommonAPI {
         Assert.assertEquals(actualComparePageText,expectedComparePageText);
 
         //Click on the "Shop" Link
-        headerPage.clickOnShopLink();
+        headerPage.clickOnShopLink(getDriver());
 
         //Choose a product from the shop, Click on the product to view its details.
         shopPage.clickOnTabletThinEliteBookRevolve();
@@ -64,7 +64,7 @@ public class ComparePageTest extends CommonAPI {
         shopPage.clickOnAddToComparePageLink();
 
         //Click on the "Shop" Link
-        headerPage.clickOnShopLink();
+        headerPage.clickOnShopLink(getDriver());
 
         //Choose another product from the shop, Click on the product to view its details.
         shopPage.clickOnSmartphone6S128GBLTE();
@@ -125,7 +125,7 @@ public class ComparePageTest extends CommonAPI {
         Assert.assertEquals(actualComparePageText,expectedComparePageText);
 
         //Click on the "Shop" Link
-        headerPage.clickOnShopLink();
+        headerPage.clickOnShopLink(getDriver());
 
         //Choose a product from the shop, Click on the product to view its details.
         shopPage.clickOnTabletThinEliteBookRevolve();
@@ -134,7 +134,7 @@ public class ComparePageTest extends CommonAPI {
         shopPage.clickOnAddToComparePageLink();
 
         //Click on the "Shop" Link
-        headerPage.clickOnShopLink();
+        headerPage.clickOnShopLink(getDriver());
 
         //Choose another product from the shop, Click on the product to view its details.
         shopPage.clickOnSmartphone6S128GBLTE();

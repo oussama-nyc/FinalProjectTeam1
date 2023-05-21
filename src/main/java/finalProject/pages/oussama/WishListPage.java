@@ -49,7 +49,9 @@ public class WishListPage extends CommonAPI {
     // ---------------------------------------------------------------------------------------------------------------
 
 
-    public String getWishlistPageIsEmptyText() {
+    public String getWishlistPageIsEmptyText(WebDriver driver) {
+        scrollToElement(wishlistPageIsEmptyText,driver);
+        waitFor(1);
         String text = getElementText(wishlistPageIsEmptyText);
         log.info("The wishlist page is empty");
         return text;
@@ -76,7 +78,9 @@ public class WishListPage extends CommonAPI {
         log.info("The product are successfully removed from the wishlist page.");
     }
 
-    public void clickOnToRemoveSecondProductFromTheWishListPage() {
+    public void clickOnToRemoveSecondProductFromTheWishListPage(WebDriver driver) {
+        scrollToElement(RemoveSecondProductFromTheWishListPage,driver);
+        waitFor(1);
         clickOn(RemoveSecondProductFromTheWishListPage);
         log.info("The product are successfully removed from the wishlist page.");
     }
@@ -87,7 +91,9 @@ public class WishListPage extends CommonAPI {
         return text;
     }
 
-    public void clickOnToAddToCartFromWishListPage() {
+    public void clickOnToAddToCartFromWishListPage(WebDriver driver) {
+        scrollToElement(addToCartFromWishListPage,driver);
+        waitFor(1);
         clickOn(addToCartFromWishListPage);
     }
 

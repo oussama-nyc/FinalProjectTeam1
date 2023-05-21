@@ -48,7 +48,7 @@ public class CheckoutTest extends CommonAPI {
         log.info("Successfully redirected to My Account page");
 
         //Click on the "Shop" Link
-        headerPage.clickOnShopLink();
+        headerPage.clickOnShopLink(getDriver());
 
         //Choose a product from the shop, Click on the product to view its details.
         shopPage.clickOnTabletThinEliteBookRevolve();
@@ -76,7 +76,7 @@ public class CheckoutTest extends CommonAPI {
         singleProductPage.clickOnViewCartButton();
 
         //Click on the "Proceed to Checkout" button to proceed to the checkout page.
-        cartPage.clickOnProceedToCheckoutButton();
+        cartPage.clickOnProceedToCheckoutButton(getDriver());
 
         //Enter a valid First name in the " First name " field
         checkoutPage.enterValidFirstName("oussama");
@@ -139,7 +139,7 @@ public class CheckoutTest extends CommonAPI {
         Assert.assertEquals(expectedTitle, actualTitle);
 
       //Click on the "Shop" Link
-      headerPage.clickOnShopLink();
+      headerPage.clickOnShopLink(getDriver());
 
       //Choose a product from the shop, Click on the product to view its details.
       shopPage.clickOnTabletThinEliteBookRevolve();
@@ -167,7 +167,7 @@ public class CheckoutTest extends CommonAPI {
       singleProductPage.clickOnViewCartButton();
 
       //Click on the "Proceed to Checkout" button to proceed to the checkout page.
-      cartPage.clickOnProceedToCheckoutButton();
+      cartPage.clickOnProceedToCheckoutButton(getDriver());
 
       //Enter a valid First name in the " First name " field
       checkoutPage.enterValidFirstName(firstName);

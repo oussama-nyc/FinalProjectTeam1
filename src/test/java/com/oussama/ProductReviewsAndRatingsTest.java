@@ -27,7 +27,7 @@ public class ProductReviewsAndRatingsTest extends CommonAPI {
         Assert.assertEquals(expectedTitle, actualTitle);
 
         //Click on the "Shop" link to go to the shop page.
-        headerPage.clickOnShopLink();
+        headerPage.clickOnShopLink(getDriver());
 
         //Choose a product from the shop, Click on the product to view its details.
         shopPage.clickOnTabletThinEliteBookRevolve();
