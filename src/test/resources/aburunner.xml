@@ -12,12 +12,13 @@
 
     <test name="AbuTest ">
         <classes>
-            <class name="com.nopcommerce.RegisterTest"></class>
-<!--            <class name="com.nopcommerce.LoginTest"></class>-->
-<!--            <class name="com.nopcommerce.InvalidCredentialsTest"></class>-->
-<!--            <class name="com.nopcommerce.FeatureTest"></class>-->
-<!--            <class name="com.nopcommerce.CheckOutTest"></class>-->
-<!--            <class name="com.nopcommerce.SearchTest"></class>-->
+<!--        <class name="com.nopcommerce.LoginTest"></class>-->
+<!--    <class name="com.nopcommerce.RegisterTest"></class>-->
+<!--    <class name="com.nopcommerce.InvalidCredentialsTest"></class>-->
+    <class name="com.nopcommerce.FeatureTest"></class>
+<!--    <class name="com.nopcommerce.CheckOutTest"></class>-->
+<!--    <class name="com.nopcommerce.SearchTest"></class>-->
+<!--    <class name="com.nopcommerce.ReviewTest"></class>-->
         </classes>
 
     </test>

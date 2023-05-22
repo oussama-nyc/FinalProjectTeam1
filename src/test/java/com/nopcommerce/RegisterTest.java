@@ -36,7 +36,7 @@ public class RegisterTest extends CommonAPI {
     ExcelReader excelReader = new ExcelReader(path);
     Faker faker = new Faker();
 
-   //String fristName = "ABU";
+  //String fristName = "ABU";
     String fristName =excelReader.getDataFromCell("oussama-data",7,1);
     //String lastName  = "YOUSUF";
     String lastName =excelReader.getDataFromCell("oussama-data",8,1);
@@ -96,6 +96,7 @@ public class RegisterTest extends CommonAPI {
         String expectedText="Your registration completed";
         String actualText = registerPage.registrationValidationText();
         Assert.assertEquals(expectedText,actualText);
+        log.info("Registration validation Success");
 
 
 
@@ -144,9 +145,10 @@ public class RegisterTest extends CommonAPI {
         registerPage.clickOnRegisterButton();
 
         // re registration validation
-     String expectedresult = "The specified email already exists";
+     String expectedResult = "The specified email already exists";
         String actualText = registerPage.reRegistrationValidationText();
-        Assert.assertEquals(expectedresult,actualText);
+        Assert.assertEquals(expectedResult,actualText);
+        log.info("Re-Registration validation Success");
 
     }
     @Test (priority = 3)
@@ -165,6 +167,8 @@ public class RegisterTest extends CommonAPI {
         String expectedText="Log out";
         String actualText = loginPage.loginValidationText();
         Assert.assertEquals(expectedText,actualText);
+        log.info("Log-in validation Success");
+
     }
     @Test(priority = 4)
     public void logOutTest(){
@@ -184,6 +188,7 @@ public class RegisterTest extends CommonAPI {
         String expectedText="Log in";
         String actualText = loginPage.logOutValidationText();
         Assert.assertEquals(expectedText,actualText);
+        log.info("Log-out validation Success");
 
 
     }
@@ -207,6 +212,40 @@ public class RegisterTest extends CommonAPI {
         String expectedText="Email with instructions has been sent to you.";
         String actualText = homePage.recoveryValidationText();
         Assert.assertEquals(expectedText,actualText);
+        log.info("Password recovery validation Success");
     }
+    @Test(priority = 6)
+    public void checkOrder(){
+        HomePage homePage = new HomePage(getDriver());
+        RegisterPage registerPage = new RegisterPage(getDriver());
+        LoginPage loginPage = new LoginPage(getDriver());
+
+        scrollByAmount(0, 400);
+        scrollByAmount(0, 400);
+        scrollByAmount(0, 400);
+        scrollByAmount(0, 400);
+        scrollByAmount(0, 400);
+        scrollByAmount(0, 400);
+        scrollByAmount(0, 400);
+        scrollByAmount(0, 400);
+
+        homePage.clickOnMyAccountLink();
+        scrollByAmount(0,100);
+        loginPage.clickOnLoginLink();
+        loginPage.typeUsername(email);
+        loginPage.typePassword(password);
+        loginPage.clickOnLoginButton();
+        scrollByAmount(0,100);
+        loginPage.clickOnOrdersLink();
+        waitFor(1);
+        String expectedText="No orders";
+        String actualText = loginPage.ordersValidationText();
+        Assert.assertEquals(expectedText,actualText);
+        log.info("Orders Validation validation Success");
+
+        //take ScreenShoot
+        captureScreenshot();
+    }
+
 
 }

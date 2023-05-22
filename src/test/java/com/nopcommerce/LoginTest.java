@@ -22,7 +22,7 @@ public class LoginTest extends CommonAPI {
 //    String password =Utility.decode(prop.getProperty("password"));
 
     Faker faker = new Faker();
-    //String email=  faker.internet().emailAddress();
+   //String email=  faker.internet().emailAddress();
    String email  = "email2001@gmail.com";
 
 

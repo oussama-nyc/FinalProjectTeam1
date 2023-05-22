@@ -26,6 +26,7 @@ public class SearchTest extends CommonAPI {
         String expectedresult = "No products were found that matched your criteria.";
         String actualText = searchPage.searchValidationText();
         Assert.assertEquals(expectedresult,actualText);
+        log.info("Search item(s) validation Success");
     }
     @Test(priority = 2)
     public void compareWith(){
@@ -46,6 +47,7 @@ public class SearchTest extends CommonAPI {
         String expectedresult = "Compare products";
         String actualText = checkOutPage.compareValidationText();
         Assert.assertEquals(expectedresult,actualText);
+        log.info("Compare products validation Success");
 
 
 

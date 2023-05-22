@@ -45,6 +45,7 @@ public class InvalidCredentialsTest extends CommonAPI {
         String expectedText="Wrong email";
         String actualText = invalidCredentialsPage.invalidEmailValidationText();
         Assert.assertEquals(expectedText,actualText);
+        log.info("Invalid email validation success ");
 
     }
         @Test(priority = 2)
@@ -66,6 +67,7 @@ public class InvalidCredentialsTest extends CommonAPI {
             String expectedText="No customer account found";
             String actualText = invalidCredentialsPage.unsuccessfulLoginValidationText();
             Assert.assertEquals(expectedText,actualText);
+            log.info("Unsuccessful Login validation success ");
 
 
 

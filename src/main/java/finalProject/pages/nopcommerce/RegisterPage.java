@@ -16,9 +16,9 @@ public class RegisterPage extends CommonAPI {
         PageFactory.initElements(driver, this);
     }
 
-    //----------------------------------------------------------------------------------------------------------------
-    // ************************************************( Locators )***************************************************
-    // ---------------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------
+    // *********************************( Locators )****************************
+    // ----------------------------------------------------------------------
     //Select Gender
     @FindBy(css = "#gender-male")
     WebElement maleSelectedOption;
@@ -71,6 +71,11 @@ public class RegisterPage extends CommonAPI {
     //RE-registration Validation
     @FindBy(xpath = "//li[normalize-space()='The specified email already exists']")
     WebElement reRegistrationValidation;
+
+    //Click on Register Button
+
+    @FindBy(xpath = " //button[normalize-space()='Register']")
+    WebElement registrationButton;
 
 
     //----------------------------------------------------------------------------------------------------------------
@@ -158,7 +163,11 @@ public class RegisterPage extends CommonAPI {
         return text;
 
     }
-    // Recovery email Field
+    //Click on Register Button
+    public void clickOnRegisterButtonOnTheLeft() {
+        clickOn(registrationButton);
+        log.info("  Click On Register Button successfully");
+    }
 
 }
 
