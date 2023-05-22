@@ -60,6 +60,33 @@ public class FeaturePage extends CommonAPI {
     @FindBy(xpath = "//div[@class='result']")
     WebElement contactUsValidation;
 
+    //Vendor name Field
+    @FindBy(xpath = "//input[@id='Name']")
+    WebElement vendorNameField;
+
+    //Vendor Email Field
+    @FindBy(xpath = "//input[@id='Email']")
+    WebElement vendorEmailField;
+
+    //Vendor Description Field
+    @FindBy(xpath = "//textarea[@id='Description']")
+    WebElement vendorDescriptionField;
+
+    //Vendor Description Field
+    @FindBy(xpath = "//button[@id='apply-vendor']")
+    WebElement vendorSubmitButton;
+
+    //vendor Submission validation
+    @FindBy(xpath = "//div[@class='result']")
+    WebElement vendorSubmissionValidation;
+
+
+
+
+
+
+
+
 
     //--------------------------------------------------------------------------
 // *********************************( Reusable Methods )**************************
@@ -134,4 +161,59 @@ public class FeaturePage extends CommonAPI {
         log.info(" shopping Cart validation successfully.");
         return text;
     }
+
+
+    //Vendor name Field
+    public void clickOnVendorNameField() {
+        clickOn(vendorNameField);
+        log.info("Click successfully");
+    }
+    //Type Vendor name  Field
+    public void typeInVendorNameField(String typeName) {
+        type(vendorNameField, typeName);
+        log.info("Type Vendor Name successfully");
+    }
+    //Vendor Email Field
+    public void clickOnVendorEmailField() {
+        clickOn(vendorEmailField);
+        log.info("Click successfully");
+    }
+    //Type Vendor Email Field
+    public void typeInVendorEmailField(String typeEmail) {
+        type(vendorEmailField, typeEmail);
+        log.info("Type Vendor Email successfully");
+    }
+    //Vendor Description Field vendorDescriptionField
+
+    public void clickOnVendorDescriptionField() {
+        clickOn(vendorDescriptionField);
+        log.info("Click successfully");
+    }
+    //Type Vendor Description Field
+    public void typeInVendorDescriptionField(String typeDescription) {
+        type(vendorDescriptionField, typeDescription);
+        log.info("Type Vendor Description successfully");
+    }
+    //vendorSubmitButton
+    public void clickOnVendorSubmitButton() {
+        clickOn(vendorSubmitButton);
+        log.info("Click Submit Button successfully");
+    }
+    //vendor Submission validation vendorSubmissionValidation
+    public String vendorSubmissionValidationText() {
+        String text = getElementText(vendorSubmissionValidation);
+        log.info(" Vendor Submission validation successfully.");
+        return text;
+    }
+
+
+
+
+
+
+
+
+
+
+
 }

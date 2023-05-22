@@ -36,6 +36,14 @@ public class HomePage extends CommonAPI {
     WebElement recoveryValidation;
 
 
+    // click on my account
+    @FindBy(xpath = "//a[normalize-space()='My account']")
+    WebElement myAccountLink;
+
+    //Click 0n Apply for vendor account
+    @FindBy(xpath = "//a[normalize-space()='Apply for vendor account']")
+    WebElement applyForVendorAccount;
+
     //----------------------------------------------------------------------------------------------------------------
     // ****************************************( Reusable Methods )***************************************************
     // ---------------------------------------------------------------------------------------------------------------
@@ -79,6 +87,18 @@ public class HomePage extends CommonAPI {
         String text = getElementText(recoveryValidation);
         log.info("  Recovery Validation succeeded");
         return text;
+    }
+
+    // Click on My account link myAccountLink
+    public void clickOnMyAccountLink() {
+        clickOn(myAccountLink);
+        log.info("Click On my Account Link successfully.");
+    }
+
+    //Click 0n Apply for vendor account
+    public void clickOnApplyForVendorAccount() {
+        clickOn(applyForVendorAccount);
+        log.info("Click on apply for Vendor Account Link successfully.");
     }
 
 }

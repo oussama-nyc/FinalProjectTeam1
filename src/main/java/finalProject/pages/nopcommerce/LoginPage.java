@@ -48,6 +48,20 @@ public class LoginPage extends CommonAPI {
     @FindBy(xpath = "//a[@class='ico-login']")
     WebElement LogoutValidation;
 
+    //Click on Orders
+    @FindBy(xpath = "//li[@class='customer-orders inactive']//a[normalize-space()='Orders']")
+    WebElement ordersLink;
+
+    //Order Validation
+    @FindBy(xpath = "//div[@class='no-data']")
+    WebElement ordersValidation;
+
+
+    //Click on my account Link
+    @FindBy(xpath = "//a[@class='ico-account']")
+    WebElement myAccountLink;
+
+
 
 
 //--------------------------------------------------------------------------
@@ -95,6 +109,25 @@ public class LoginPage extends CommonAPI {
         String text = getElementText(LogoutValidation);
         log.info("  log out Validation successfully");
         return text;
+    }
+
+    //Click on Orders ordersLink
+    public void clickOnOrdersLink() {
+        clickOn(ordersLink);
+        log.info(" Click On OrdersLink successfully");
+    }
+
+    //Order Validation
+    public String ordersValidationText() {
+        String text = getElementText(ordersValidation);
+        log.info("  Order Validation successfully");
+        return text;
+    }
+
+    //Click on my account Link myAccountLink
+    public void clickOnMyAccountLink() {
+        clickOn(myAccountLink);
+        log.info(" Click On OrdersLink successfully");
     }
 
 
