@@ -13,7 +13,7 @@
     <test name="AghelesTest ">
         <classes>
             <class name="com.scaledupit.RegisterTest"></class>
+            <class name="com.scaledupit.AddProductToCartTest"></class>
         </classes>
     </test>
-
 </suite>
