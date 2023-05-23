@@ -12,7 +12,9 @@
 
     <test name="FouadTest ">
         <classes>
-            <class name="com.luma.RegisterTest"></class>
+
+            <class name="com.luma.AccountTest"></class>
+
         </classes>
     </test>
 </suite>
