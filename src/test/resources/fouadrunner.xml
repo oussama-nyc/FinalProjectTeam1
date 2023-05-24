@@ -17,7 +17,7 @@
             <class name="com.luma.BaseMenuTest"></class>
             <class name="com.luma.CheckoutTest"></class>
             <class name="com.luma.RegisterTest"></class>
-            <class name="com.luma.AccountTest"></class>
+            <class name="com.luma.ShoppingOptionsTest"></class>
             <class name="com.luma.ShoppingCartTest"></class>
 
         </classes>
