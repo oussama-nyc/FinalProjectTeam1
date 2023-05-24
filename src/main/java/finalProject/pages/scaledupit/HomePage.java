@@ -147,7 +147,10 @@ import org.openqa.selenium.support.PageFactory;
             log.info("click on add kids Collection to cart success");
         }
 
-
+        public void clearSearchField (){
+            clear(searchField);
+            log.info("clear search file success ");
+        }
 
     }
 
