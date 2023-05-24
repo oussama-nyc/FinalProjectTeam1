@@ -89,6 +89,52 @@ public class CheckOutPage extends CommonAPI {
     @FindBy(xpath = "//h1[normalize-space()='Compare products']")
     WebElement compareValidation;
 
+    // *************************Desktops Locators*******************************
+    //Click on Sitemap
+    @FindBy(xpath = "//a[normalize-space()='Sitemap']")
+    WebElement SitemapLink;
+
+    //desktop Link
+    @FindBy(xpath = "//div[@class='entity-body']//a[normalize-space()='Desktops']")
+    WebElement desktopLink;
+
+    //Click on Build your own computer
+    @FindBy(xpath = "//h2[@class='product-title']//a[normalize-space()='Build your own computer']")
+    WebElement buildYourOwnComputer;
+
+    //Click on  choose processor
+    @FindBy(css = "#product_attribute_1")
+    WebElement processor;
+
+    //Click on choose processor 2.5GHz processor2_5GHz
+    @FindBy(css = "option[value='2']")
+    WebElement processor2_5GHz;
+
+    //Click on choose RAM
+    @FindBy(css = "#product_attribute_2")
+    WebElement ram;
+
+    //Click on choose RAM-GB
+    @FindBy(css = "option[value='5']")
+    WebElement ramGb;
+
+    //Click on choose HDD
+    @FindBy(css = "li[data-attr-value='6']")
+    WebElement hdd;
+
+    //Click on choose OS
+    @FindBy(xpath = "//label[@for='product_attribute_4_9']")
+    WebElement os;
+
+    //Click on choose software
+    @FindBy(xpath = "//label[@for='product_attribute_5_11']")
+    WebElement software;
+
+    //Click on add to cart button PC
+
+    @FindBy(css = "#add-to-cart-button-1")
+    WebElement addToCartForPC;
+
     //***************************************Methods*************************************************
     public void clickOnJewelry() {
         clickOn(jewelry);
@@ -100,7 +146,7 @@ public class CheckOutPage extends CommonAPI {
         clickOn(flowerGirlBracelet);
         log.info(" Click On flowerGirlBracelet Link successfully.");
     }
-    // compare Clower Gir lBracelet
+    // compare Flower Girl Bracelet
     public void clickOnFlowerGirlBraceletCompare() {
         clickOn(compareClowerGirlBracelet);
         log.info(" Click On flowerGirlBracelet Link successfully.");
@@ -181,4 +227,64 @@ public void clickOnUpdateQty() {
         log.info("  Compare Validation succeeded");
         return text;
     }
+
+    // *************************Desktops Methods*******************************
+    //Click on Sitemap
+    public void clickOnSitemapLink() {
+        clickOn(SitemapLink);
+        log.info(" Click Sitemap link successfully.");
+    }
+    // //desktop Link
+    public void clickOnDesktopLink() {
+        clickOn(desktopLink);
+        log.info(" Click desktop link successfully.");
+    }
+
+    //add To Cart Button
+    public void clickOnBuildYourOwnComputer() {
+        clickOn(buildYourOwnComputer);
+        log.info("Click on build Your Own Computer successfully.");
+    }
+    //Click on  choose processor
+    public void clickOnChooseProcessor() {
+        clickOn(processor);
+        log.info("Click processor choose successfully.");
+    }
+    //Click on choose processor 2.5GHz
+    public void clickOnChooseProcessor2_5GHz() {
+        clickOn(processor2_5GHz);
+        log.info("Click processor 2_5GHz choose successfully.");
+    }
+    //Click on RAM
+    public void clickOnRAM() {
+        clickOn(ram);
+        log.info("Click RAM successfully.");
+    }
+    //Click on choose RAM-GB
+    public void clickOnRAMChooseGB() {
+        clickOn(ramGb);
+        log.info("Click RAM GB successfully.");
+    }
+    //Click on choose HDD
+    public void clickOnHDD() {
+        clickOn(hdd);
+        log.info("Click HDD successfully.");
+    }
+    //Click on choose OS
+    public void clickOnOS() {
+        clickOn(os);
+        log.info("Click OS successfully.");
+    }
+    //Click on choose software
+    public void clickOnSoftware() {
+        clickOn(software);
+        log.info("Click Software successfully.");
+    }
+    //Click on add to cart button PC
+    public void clickOnAddToCartButtonForPC() {
+        clickOn(addToCartForPC);
+        log.info("Click on Add To Cart Button For PC successfully.");
+    }
+
+
 }
