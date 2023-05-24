@@ -94,7 +94,7 @@ public class CommonAPI {
             }
         }
         driver.quit();
-       log.info("browser close success");
+        log.info("browser close success");
     }
     @AfterSuite
     public void generateReport() {
@@ -156,12 +156,12 @@ public class CommonAPI {
 
         driver.get(url);
     }
-//    @AfterMethod
-//   public void tearDown(){
-//        //close browser
-//       driver.quit();
-//      log.info("browser close success");
-//  }
+    @AfterMethod
+   public void tearDown(){
+        //close browser
+       driver.quit();
+      log.info("browser close success");
+  }
 
     WebDriver driver;
     public WebDriver getDriver() {
@@ -176,15 +176,15 @@ public class CommonAPI {
     }
 
     public String getElementText(WebElement element){
-            return element.getText();
+        return element.getText();
     }
 
     public void clickOn(WebElement element){
-            element.click();
+        element.click();
     }
 
     public void type(WebElement element, String text){
-            element.sendKeys(text);
+        element.sendKeys(text);
     }
     public void hoverOver(WebElement element, WebDriver driver){
         Actions actions = new Actions(driver);
@@ -203,15 +203,15 @@ public class CommonAPI {
         }
     }
     public boolean isVisible(WebElement element){
-            return element.isDisplayed();
+        return element.isDisplayed();
     }
 
     public boolean isInteractible(WebElement element){
-            return element.isEnabled();
+        return element.isEnabled();
     }
 
     public boolean isChecked(WebElement element){
-            return element.isSelected();
+        return element.isSelected();
     }
 
 
@@ -229,12 +229,12 @@ public class CommonAPI {
 
     // clear field
     public void clear(WebElement element){
-             element.clear();
+        element.clear();
     }
 
     // press Key
     public void pressKey(WebElement element, Keys key) {
-            element.sendKeys(key);
+        element.sendKeys(key);
     }
 
     // Move Slider

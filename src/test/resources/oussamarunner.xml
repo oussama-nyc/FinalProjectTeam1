@@ -10,8 +10,13 @@
     <parameter name="browserName" value="chrome"></parameter>
     <parameter name="url" value="https://www.oussama-achour.com/"></parameter>
 
-
     <test name="OUSSAMA TEST CASES ">
+        <groups>
+            <run>
+<!--                <include name="CartPage"></include>-->
+<!--                <exclude name="CartPage"></exclude>-->
+            </run>
+        </groups>
         <classes>
             <class name="com.oussama.RegisterTest"></class>
             <class name="com.oussama.LoginAndLogoutTest"></class>

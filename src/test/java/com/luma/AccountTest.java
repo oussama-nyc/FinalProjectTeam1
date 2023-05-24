@@ -12,8 +12,6 @@ import org.testng.annotations.Test;
 public class AccountTest extends CommonAPI {
     Logger LOG = LogManager.getLogger(AccountTest.class.getName());
 
-
-
     @Test
     public void invalidEmailAddress() throws InterruptedException {
         HomePage homePage = new HomePage(getDriver());

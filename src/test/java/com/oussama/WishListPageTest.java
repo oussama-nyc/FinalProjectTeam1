@@ -189,7 +189,7 @@ public class WishListPageTest extends CommonAPI {
     // ***************( Test Case For Adding Wishlist Items To The Cart )*********
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test (priority = 3)
+    @Test (priority = 3,groups = {"CartPage"})
     public void addingWishlistItemsToTheCart() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());

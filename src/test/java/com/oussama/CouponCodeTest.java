@@ -14,7 +14,7 @@ public class CouponCodeTest extends CommonAPI {
     // ***************( Test Case for Coupon Code Functionality )**************************************************
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test
+    @Test (groups = {"CartPage"})
     public void couponCode() {
         HeaderPage headerPage = new HeaderPage(getDriver());
         ShopPage shopPage = new ShopPage(getDriver());
