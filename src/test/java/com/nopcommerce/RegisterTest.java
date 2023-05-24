@@ -2,6 +2,7 @@ package com.nopcommerce;
 
 import com.github.javafaker.Faker;
 import finalProject.base.CommonAPI;
+import finalProject.pages.nopcommerce.CheckOutPage;
 import finalProject.pages.nopcommerce.HomePage;
 import finalProject.pages.nopcommerce.LoginPage;
 import finalProject.pages.nopcommerce.RegisterPage;
@@ -245,6 +246,37 @@ public class RegisterTest extends CommonAPI {
 
         //take ScreenShoot
         captureScreenshot();
+    }
+
+    // build my own PC
+    @Test (priority = 7)
+    public void buildMyOwnPC(){
+        HomePage homePage = new HomePage(getDriver());
+        RegisterPage registerPage = new RegisterPage(getDriver());
+        LoginPage loginPage = new LoginPage(getDriver());
+        CheckOutPage checkOutPage = new CheckOutPage(getDriver());
+
+        scrollByAmount(0,3200);
+        checkOutPage.clickOnSitemapLink();
+        scrollByAmount(0,500);
+        checkOutPage.clickOnDesktopLink();
+        scrollByAmount(0,200);
+        checkOutPage.clickOnBuildYourOwnComputer();
+        scrollByAmount(0,100);
+        checkOutPage.clickOnChooseProcessor();
+        checkOutPage.clickOnChooseProcessor2_5GHz();
+        checkOutPage.clickOnRAM();
+        checkOutPage.clickOnRAMChooseGB();
+        scrollByAmount(0,150);
+        checkOutPage.clickOnHDD();
+        checkOutPage.clickOnOS();
+        checkOutPage.clickOnSoftware();
+        checkOutPage.clickOnAddToCartButtonForPC();
+        checkOutPage.clickOnAddToCart();
+        checkOutPage.clickOnAgreeCheckBox();
+        checkOutPage.clickOnCheckOut();
+
+
     }
 
 

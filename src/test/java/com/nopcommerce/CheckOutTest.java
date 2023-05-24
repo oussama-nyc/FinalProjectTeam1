@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
 public class CheckOutTest extends CommonAPI {
-    Logger log = LogManager.getLogger(InvalidCredentialsTest.class.getName());
+    Logger log = LogManager.getLogger(CheckOutTest.class.getName());
 @Test(priority = 1)
     public void checkOut(){
        // HomePage homePage = new HomePage(getDriver());
