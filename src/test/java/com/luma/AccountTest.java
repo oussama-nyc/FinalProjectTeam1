@@ -12,8 +12,6 @@ import org.testng.annotations.Test;
 public class AccountTest extends CommonAPI {
     Logger LOG = LogManager.getLogger(AccountTest.class.getName());
 
-
-
     @Test
     public void invalidEmailAddress() throws InterruptedException {
         HomePage homePage = new HomePage(getDriver());
@@ -183,9 +181,12 @@ public class AccountTest extends CommonAPI {
 
     @Test
     public void validCredentials() throws InterruptedException {
+        // navigate to the website
         HomePage homePage = new HomePage(getDriver());
         WhatsNewPage whatsNewPage= new WhatsNewPage(getDriver());
+        // land to the login page
         LoginPage loginPage = new LoginPage(getDriver());
+        // enter email and password
         String email ="fouad.alili89@gmail.com";
         String password = "Elizabeth7";
         homePage.clickOnLoginButton();
@@ -195,7 +196,7 @@ public class AccountTest extends CommonAPI {
         Thread.sleep(2000);
         loginPage.clickOnConnectButton();
         Thread.sleep(2000);
-
+      // verify the user is successfully login
         String title = getCurrentTitle();
         Assert.assertEquals(title, "Home Page");
         LOG.info("login title page validation success");
