@@ -14,6 +14,7 @@
         <classes>
             <class name="com.scaledupit.RegisterTest"></class>
             <class name="com.scaledupit.AddProductToCartTest"></class>
+            <class name="com.scaledupit.ProductSearchTest"></class>
         </classes>
     </test>
 </suite>
