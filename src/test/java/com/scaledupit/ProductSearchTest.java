@@ -22,7 +22,7 @@ public class ProductSearchTest extends CommonAPI {
 
 
     @Test
-    public void searchConverse() {
+    public void searchShoes() {
         ProductSearchPage ProductSearchPage = new ProductSearchPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
         String expectedTitle = "Automation – Automate eCommerce";
@@ -31,8 +31,8 @@ public class ProductSearchTest extends CommonAPI {
         log.info("user landed successfully to the website ");
         waitFor(3);
 
-        // click on searchbar and type converse , and click on search button
-        homePage.typeItemToSearch("converse");
+        // click on searchbar and type shoes , and click on search button
+        homePage.typeItemToSearch("shoes");
         waitFor(3);
 
         homePage.clickOnSearchButton();
