@@ -2,10 +2,7 @@ package com.nopcommerce;
 
 import com.github.javafaker.Faker;
 import finalProject.base.CommonAPI;
-import finalProject.pages.nopcommerce.CheckOutPage;
-import finalProject.pages.nopcommerce.HomePage;
-import finalProject.pages.nopcommerce.LoginPage;
-import finalProject.pages.nopcommerce.RegisterPage;
+import finalProject.pages.nopcommerce.*;
 import finalProject.utility.ExcelReader;
 import finalProject.utility.Utility;
 import org.apache.logging.log4j.LogManager;
@@ -51,7 +48,7 @@ public class RegisterTest extends CommonAPI {
     String password =excelReader.getDataFromCell("oussama-data",10,1);
    // String confirmPassword = "Admin1234";
     String confirmPassword =excelReader.getDataFromCell("oussama-data",11,1);
-    @Test(priority = 1)
+     @Test(priority = 1)
     public void registerTest() {
         String expectedTitle = "nopCommerce demo store";
         String actualTitle = getCurrentTitle();
@@ -171,7 +168,7 @@ public class RegisterTest extends CommonAPI {
         log.info("Log-in validation Success");
 
     }
-    @Test(priority = 4)
+     @Test(priority = 4)
     public void logOutTest(){
         HomePage homePage = new HomePage(getDriver());
         RegisterPage registerPage = new RegisterPage(getDriver());
@@ -275,6 +272,27 @@ public class RegisterTest extends CommonAPI {
         checkOutPage.clickOnAddToCart();
         checkOutPage.clickOnAgreeCheckBox();
         checkOutPage.clickOnCheckOut();
+
+
+    }
+    // Vote
+    @Test (priority = 8)
+    public void vote(){
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
+        FeaturePage featurePage = new FeaturePage(getDriver());
+        loginPage.clickOnLoginLink();
+        loginPage.typeUsername(email);
+        loginPage.typePassword(password);
+        loginPage.clickOnLoginButton();
+        scrollByAmount(0,2000);
+        featurePage.clickOnExcellentButton();
+        featurePage.clickOnVoteButton();
+
+        String expectedText="Community poll";
+        String actualText = featurePage.voteValidationText();
+        Assert.assertEquals(expectedText,actualText);
+        log.info("Vote validation Success");
 
 
     }
