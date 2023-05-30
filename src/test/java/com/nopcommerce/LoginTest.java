@@ -24,8 +24,9 @@ public class LoginTest extends CommonAPI {
     Faker faker = new Faker();
    //String email=  faker.internet().emailAddress();
    String email  = "email2001@gmail.com";
+    RegisterTest registerTest = new RegisterTest();
 
-
+   String validEmail= registerTest.email;
 
 
     String password = "Admin1234";
@@ -35,7 +36,7 @@ public class LoginTest extends CommonAPI {
         RegisterPage registerPage = new RegisterPage(getDriver());
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.clickOnLoginLink();
-        loginPage.typeUsername(email);
+        loginPage.typeUsername(registerTest.email);
         waitFor(1);
         loginPage.typePassword(password);
         waitFor(1);
@@ -52,7 +53,7 @@ public class LoginTest extends CommonAPI {
         RegisterPage registerPage = new RegisterPage(getDriver());
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.clickOnLoginLink();
-        loginPage.typeUsername(email);
+        loginPage.typeUsername(registerTest.email);
         waitFor(1);
         loginPage.typePassword(password);
         waitFor(1);

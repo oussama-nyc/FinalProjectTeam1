@@ -27,6 +27,8 @@ public class FeatureTest extends CommonAPI {
     String password =excelReader.getDataFromCell("oussama-data",10,1);
     String confirmPassword =excelReader.getDataFromCell("oussama-data",11,1);
     String message =excelReader.getDataFromCell("oussama-data",14,1);
+    //String email =excelReader.getDataFromCell("oussama-data",13,1);
+    String senderEmail =excelReader.getDataFromCell("oussama-data",21,1);
     String email=  faker.internet().emailAddress();
     //String email =excelReader.getDataFromCell("oussama-data",6,1);
     //String email= "abuyousuf@yahoo.com";
@@ -37,7 +39,7 @@ public class FeatureTest extends CommonAPI {
 
     Logger log = LogManager.getLogger(FeatureTest.class.getName());
 
-  @Test(priority = 1)
+    @Test(priority = 1)
     public void wishListTest(){
        //Wish list Test
         HomePage homePage = new HomePage(getDriver());
@@ -153,4 +155,39 @@ public class FeatureTest extends CommonAPI {
         Assert.assertEquals(actualText, expectedText);
         log.info("Vendor Submission validation successfully.");
     }
-}
+    @Test(priority = 5)
+    //subscribe Newsletter
+    public void subscribeNewsletter(){
+        FeaturePage featurePage = new FeaturePage(getDriver());
+
+        scrollByAmount(0,3200);
+        featurePage.typeEmailNewsletterSubscribeField(email);
+        featurePage.clickOnSubscribeButton();
+
+        // validation
+        String expectedText = "Newsletter";
+        String actualText = featurePage.subscribeNewsletterValidationText();
+        Assert.assertEquals(actualText, expectedText);
+        log.info("Subscribe Newsletter Validation successfully.");
+
+
+
+    }
+    //***********( Email a friend )***********
+    @Test(priority = 6)
+    public void emailAFried(){
+        FeaturePage featurePage = new FeaturePage(getDriver());
+        featurePage.clickOnDigitalDownloadsLink();
+        scrollByAmount(0,150);
+        featurePage.clickOnIfYouWaitDonationLink();
+        scrollByAmount(0,150);
+        featurePage.clickOnEmailAFriendLink();
+        scrollByAmount(0,150);
+        featurePage.typeFriendEmailField(email);
+        featurePage.typeYourEmailAddressField(senderEmail);
+        featurePage.typePersonalMessageField(message);
+    }
+
+    }
+    
+

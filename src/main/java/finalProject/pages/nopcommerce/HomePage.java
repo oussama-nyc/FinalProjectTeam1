@@ -19,6 +19,7 @@ public class HomePage extends CommonAPI {
     @FindBy(xpath = "//a[@class='ico-register']")
     WebElement registerLink;
 
+
     //forgot password
     @FindBy(xpath = "//span[@class='forgot-password']")
     WebElement forgotPassword;

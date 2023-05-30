@@ -81,10 +81,58 @@ public class FeaturePage extends CommonAPI {
     WebElement vendorSubmissionValidation;
 
 
+    //***********( Newsletter Subscribe Locators )***********
+  //Newsletter Subscribe
+    @FindBy(xpath = "//input[@id='newsletter-email']")
+    WebElement newsletterSubscribeField;
 
+    //Subscribe button
+    @FindBy(xpath = "//button[@id='newsletter-subscribe-button']")
+    WebElement subscribeButton;
 
+    // newsletter Subscribe Validation
+    @FindBy(xpath = "//strong[normalize-space()='Newsletter']")
+    WebElement subscribeNewsletterValidation;
 
+    //***********( vote Locators )***********
+        // click on excellent button
+    @FindBy(css = "label[for='pollanswers-1']")
+    WebElement excellentButton;
 
+    //click on vote button
+    @FindBy(css = "#vote-poll-1")
+    WebElement voteButton;
+
+    // vote validation
+
+    @FindBy(xpath = "//strong[normalize-space()='Community poll']")
+    WebElement voteValidation;
+
+    //***********( Email a friend Locators )***********
+    // Click on Digital downloads
+    @FindBy(xpath = "//ul[@class='top-menu notmobile']//a[normalize-space()='Digital downloads']")
+    WebElement digitalDownloadsLink;
+
+    // click If You Wait (donation)
+    @FindBy(xpath = "//h2[@class='product-title']//a[normalize-space()='If You Wait (donation)']")
+    WebElement ifYouWaitDonationLink;
+
+    //Email a friend
+    @FindBy(xpath = "//button[normalize-space()='Email a friend']")
+    WebElement emailAFriendLink;
+
+    //Type Friend Email field
+    @FindBy(xpath = "//input[@id='FriendEmail']")
+    WebElement friendEmailField;
+
+    //Type Your email address field
+
+    @FindBy(xpath = "//input[@id='YourEmailAddress']")
+    WebElement yourEmailAddressField;
+
+    // Type Personal message field  PersonalMessageField
+    @FindBy(xpath = "//textarea[@id='PersonalMessage']")
+    WebElement PersonalMessageField;
 
 
 
@@ -206,14 +254,80 @@ public class FeaturePage extends CommonAPI {
         return text;
     }
 
+    //***********( Newsletter Subscribe Method )***********
+    //Newsletter Subscribe
+    public void typeEmailNewsletterSubscribeField(String typeEmail) {
+        type(newsletterSubscribeField, typeEmail);
+        log.info("Type email successfully");
+    }
 
+    //Subscribe button
+    public void clickOnSubscribeButton() {
+        clickOn(subscribeButton);
+        log.info("Click Subscribe Button successfully");
+    }
+//subscribe Newsletter Validation
+    public String subscribeNewsletterValidationText() {
+        String text = getElementText(subscribeNewsletterValidation);
+        log.info("Subscribe Newsletter Validation successfully.");
+        return text;
+    }
 
+    //***********( vote Methods )***********
 
+    // click on excellent button
+    public void clickOnExcellentButton() {
+        clickOn(excellentButton);
+        log.info("Click on excellent Button successfully");
+    }
 
+    //click on vote button voteButton
 
+    public void clickOnVoteButton() {
+        clickOn(voteButton);
+        log.info("Click on vote Button successfully");
+    }
 
+    // vote validation
+    public String voteValidationText() {
+        String text = getElementText(voteValidation);
+        log.info("vote Validation successfully.");
+        return text;
+    }
 
+    //***********( Email a friend Locators )***********
+    // Click on Digital downloads
 
+    public void clickOnDigitalDownloadsLink() {
+        clickOn(digitalDownloadsLink);
+        log.info("Click on digital Downloads Link successfully");
+    }
+    // click If You Wait (donation)
+    public void clickOnIfYouWaitDonationLink() {
+        clickOn(ifYouWaitDonationLink);
+        log.info("Click on if You Wait Donation Link successfully");
+    }
+    //Email a friend
+    public void clickOnEmailAFriendLink() {
+        clickOn(emailAFriendLink);
+        log.info("Click on email A Friend Link successfully");
+    }
+    //Type Friend Email field
+    public void typeFriendEmailField(String typeEmail) {
+        type(friendEmailField, typeEmail);
+        log.info("Type email successfully");
+    }
+    //Type Your email address field
+    public void typeYourEmailAddressField(String typeEmail) {
+        type(yourEmailAddressField, typeEmail);
+        log.info("Type email successfully");
+    }
+
+    // Type Personal message field
+    public void typePersonalMessageField(String typeMessage) {
+        type(PersonalMessageField, typeMessage);
+        log.info("Type Message successfully");
+    }
 
 
 }
