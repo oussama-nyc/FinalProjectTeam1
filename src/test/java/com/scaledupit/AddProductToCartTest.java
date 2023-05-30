@@ -59,7 +59,7 @@ public class AddProductToCartTest extends CommonAPI {
         log.info("user landed successfully to the website ");
         waitFor(3);
 
-        // hover over on catefgories
+        // hover over on
         homePage.hoverOverOnCategoriesButton(getDriver());
         waitFor(3);
 
