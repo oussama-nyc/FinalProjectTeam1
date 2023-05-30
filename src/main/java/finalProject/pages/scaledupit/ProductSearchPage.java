@@ -19,14 +19,14 @@ public class ProductSearchPage extends CommonAPI {
 
 
     @FindBy(xpath = "//header[@class='page-header']/h1[1]")
-    WebElement conversePageTitle;
+    WebElement shoePageTitle;
     @FindBy(xpath = "//div[@class='page-content']/p[1]")
     WebElement errorMessage;
 
 
     public String getSearchPageTitle() {
-        String text = getElementText(conversePageTitle);
-        log.info("converse page header text is " + conversePageTitle);
+        String text = getElementText(shoePageTitle);
+        log.info("converse page header text is " + shoePageTitle);
         return text;
     }
     public String getErrorMessage() {
