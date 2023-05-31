@@ -15,6 +15,7 @@ public class CouponCodeTest extends CommonAPI {
     // ---------------------------------------------------------------------------------------------------------------
 
     @Test  (enabled = true,groups = {"Integration"})
+
     public void couponCode() {
         HeaderPage headerPage = new HeaderPage(getDriver());
         ShopPage shopPage = new ShopPage(getDriver());
