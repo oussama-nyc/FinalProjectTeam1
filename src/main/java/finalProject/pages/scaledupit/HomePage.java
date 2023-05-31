@@ -182,4 +182,7 @@ import org.openqa.selenium.support.PageFactory;
         }
 
 
+        public void clickOnGuitar() {
+
         }
+    }
