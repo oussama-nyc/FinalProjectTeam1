@@ -52,6 +52,5 @@ public class ShoppingOptionsTest extends CommonAPI {
         Assert.assertEquals(ascendingOrder,true);
         LOG.info("Sort by price successful. first item is "+firstItemPrice+" last item is "+lastItemPrice);
 
-
     }
 }

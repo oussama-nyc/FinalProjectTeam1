@@ -28,17 +28,36 @@ public class ExcelReader {
         this.path = path;
     }
 
-    public String getDataFromCell(String sheet, int rowNum, int colNum){
+//    public String getDataFromCell(String sheet, int rowNum, int colNum){
+//        try {
+//            FileInputStream excelFile = new FileInputStream(path);
+//            excelWBook = new XSSFWorkbook(excelFile);
+//            excelWSheet = excelWBook.getSheet(sheet);
+//            cell = excelWSheet.getRow(rowNum).getCell(colNum);
+//            String cellValue = cell.getStringCellValue();
+//            excelFile.close();
+//            return cellValue;
+//        }catch (Exception e){
+//            LOG.info("no file found");
+//            return "";
+//        }
+//    }
+
+
+    public String getDataFromCell(String sheet, int rowNum, int colNum) {
         try {
             FileInputStream excelFile = new FileInputStream(path);
             excelWBook = new XSSFWorkbook(excelFile);
             excelWSheet = excelWBook.getSheet(sheet);
             cell = excelWSheet.getRow(rowNum).getCell(colNum);
-            String cellValue = cell.getStringCellValue();
+
+            DataFormatter formatter = new DataFormatter();
+            String cellValue = formatter.formatCellValue(cell);
+
             excelFile.close();
             return cellValue;
-        }catch (Exception e){
-            LOG.info("no file found");
+        } catch (Exception e) {
+            LOG.info("No file found");
             return "";
         }
     }

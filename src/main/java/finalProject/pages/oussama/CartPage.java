@@ -39,6 +39,15 @@ public class CartPage extends CommonAPI {
     @FindBy(css = "tr[class='cart-discount coupon-macbookpro30off'] th")
     WebElement specificProductsCouponText;
 
+    @FindBy(css = "input[title='Qty']")
+    WebElement productQuantityField;
+
+    @FindBy(css = "button[value='Update cart']")
+    WebElement updateCartButton;
+
+    @FindBy(css = "div[role='alert']")
+    WebElement alertMessage;
+
 
 
     //----------------------------------------------------------------------------------------------------------------
@@ -75,7 +84,6 @@ public class CartPage extends CommonAPI {
         return text;
     }
 
-
     public String getSpecificProductsCouponText(WebDriver driver) {
         scrollToElement(specificProductsCouponText,driver);
         waitFor(1);
@@ -83,6 +91,25 @@ public class CartPage extends CommonAPI {
         return text;
     }
 
+    public void typeProductQuantity(WebDriver driver) {
+        scrollToElement(productQuantityField,driver);
+        waitFor(1);
+        clear(productQuantityField);
+        type(productQuantityField,"9");
+        log.info("Successfully selected the desired quantity of the product.");
+    }
 
+    public void clickOnUpdateCartButton(WebDriver driver) {
+        scrollToElement(updateCartButton,driver);
+        waitFor(1);
+        clickOn(updateCartButton);
+        log.info("Clicked On Update Cart Button successfully.");
+    }
 
+    public String getAlertMessage(WebDriver driver) {
+        scrollToElement(alertMessage,driver);
+        waitFor(1);
+        String text = getElementText(alertMessage);
+        return text;
+    }
 }

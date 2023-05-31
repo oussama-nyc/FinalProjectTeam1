@@ -15,7 +15,7 @@ public class TrackYourOrderTest extends CommonAPI {
     // ***************( Test case for Track Your Order Feature )**************************************************
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test
+    @Test (enabled = true,groups = {"Integration"})
     public void trackYourOrder() {
         HeaderPage headerPage = new HeaderPage(getDriver());
         TrackYourOrderPage trackYourOrderPage = new TrackYourOrderPage(getDriver());

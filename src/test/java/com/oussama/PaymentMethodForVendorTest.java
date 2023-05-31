@@ -1,25 +1,27 @@
 package com.oussama;
 
+import finalProject.base.CommonAPI;
+import finalProject.pages.oussama.DashboardPage;
 import finalProject.pages.oussama.HeaderPage;
+import finalProject.pages.oussama.MyAccountPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import finalProject.base.CommonAPI;
-import finalProject.pages.oussama.DashboardPage;
-import finalProject.pages.oussama.MyAccountPage;
 
-public class RegisterTest extends CommonAPI {
+public class PaymentMethodForVendorTest extends CommonAPI {
 
-    Logger log = LogManager.getLogger(RegisterTest.class.getName());
+    Logger log = LogManager.getLogger(PaymentMethodForVendorTest.class.getName());
 
-     //---------------------------------------------------------------------------------------------------------------
-     //**************************************( Test case for registering as a customer )******************************
-     // --------------------------------------------------------------------------------------------------------------
-    @Test (enabled = true,priority = 1, groups = {"Sanity"})
-    public void RegisterAsCustomer()  {
+    //---------------------------------------------------------------------------------------------------------------
+    // ***********************************( Test case for Payment Method For Vendor  )**************************************************
+    // ---------------------------------------------------------------------------------------------------------------
+
+    @Test  (enabled = true,groups = {"Smoke"})
+    public void paymentMethodForVendor() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());
+        DashboardPage dashboardPage = new DashboardPage(getDriver());
 
         String expectedTitle = "Welcome to Worldwide Electronics Store";
         String actualTitle = getCurrentTitle();
@@ -27,42 +29,6 @@ public class RegisterTest extends CommonAPI {
 
         //Click on the "My Account" Link
         headerPage.clickOnMyAccountLink();
-
-        //Enter a valid Email address in the " Email address " field.
-        myAccountPage.enterRegisterEmailFieldFakeData();
-
-        //Enter a valid Password in the " Password " field
-        myAccountPage.enterRegisterPasswordFieldFakeData(getDriver());
-
-        //Select I am a customer as the registration type.
-        myAccountPage.selectRegisterCustomerOption(getDriver());
-
-        //Click on the " Register " button to submit the form.
-        myAccountPage.clickOnRegisterButton(getDriver());
-
-        //Verify that the customer is redirected to the My Account page.
-        String expectedMyAccountPageTitle = "My Account";
-        String actualMyAccountPageTitle = myAccountPage.getMyAccountTitle();
-        Assert.assertEquals(actualMyAccountPageTitle,expectedMyAccountPageTitle);
-        log.info("Successfully redirected to My Account page");
-    }
-
-     //---------------------------------------------------------------------------------------------------------------
-     // ************************************( Test case for registering as a vendor )*********************************
-     // --------------------------------------------------------------------------------------------------------------
-
-    @Test (enabled = true,priority = 2, groups = {"Sanity"})
-   public void RegisterAsVendor()  {
-       MyAccountPage myAccountPage = new MyAccountPage(getDriver());
-       HeaderPage headerPage = new HeaderPage(getDriver());
-       DashboardPage dashboardPage = new DashboardPage(getDriver());
-
-        String expectedTitle = "Welcome to Worldwide Electronics Store";
-        String actualTitle = getCurrentTitle();
-        Assert.assertEquals(expectedTitle, actualTitle);
-
-        //Click on the "My Account" Link
-       headerPage.clickOnMyAccountLink();
 
         //Enter a valid Email address in the " Email address " field.
         myAccountPage.enterRegisterEmailFieldFakeData();
@@ -108,6 +74,23 @@ public class RegisterTest extends CommonAPI {
         String actualMyDashboardTitle = dashboardPage.getMyDashboardTitle();
         Assert.assertEquals(actualMyDashboardTitle,expectedMyDashboardPageTitle);
         log.info("Successfully redirected to dashboard page");
-   }
 
+        //click On Payment Methods
+        dashboardPage.clickOnPaymentMethods(getDriver());
+
+        //click On Add Payment Methods
+        dashboardPage.clickOnAddPaymentMethods(getDriver());
+
+        //enter Valid PayPal Email
+        dashboardPage.enterValidPayPalEmail(getDriver());
+
+        //click On Update Settings Button
+        dashboardPage.clickOnUpdateSettingsButton(getDriver());
+
+        //Verify that the information has been saved
+        String expectedAlertMessage = "Your information has been saved successfully";
+        String actualAlertMessage = dashboardPage.getPaymentMethodAlertSuccessMessage();
+        Assert.assertEquals(actualAlertMessage,expectedAlertMessage);
+        log.info("Your information has been saved successfully");
+    }
 }

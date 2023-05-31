@@ -54,6 +54,22 @@ public class ShopPage extends CommonAPI {
     @FindBy(xpath = "//div[contains(@class,'summary entry-summary')]//span[contains(text(),'Add to wishlist')]")
     WebElement AddToWishListPageLink;
 
+    @FindBy(css = "li[class='product type-product post-5552 status-publish first instock product_cat-chargers has-post-thumbnail sale shipping-taxable purchasable product-type-simple'] div[class='product-loop-header product-item__header'] h2[class='woocommerce-loop-product__title']")
+    WebElement macBookCharger;
+
+    @FindBy(css = "img[alt='\uD83D\uDD0D']")
+    WebElement productGallery;
+
+    @FindBy(css = "button[aria-label='Next (arrow right)']")
+    WebElement nextProductPicture;
+
+    @FindBy(css = "div[class='pswp__caption'] div[class='pswp__caption__center']")
+    WebElement productPictureName;
+
+
+
+
+
 
     //----------------------------------------------------------------------------------------------------------------
     // ****************************************( Reusable Methods )***************************************************
@@ -118,6 +134,35 @@ public class ShopPage extends CommonAPI {
         clickOn(AddToWishListPageLink);
         log.info("The selected product is successfully added to the wishlist page");
     }
+
+    public void clickOnMacBookCharger(WebDriver driver) {
+        scrollToElement(macBookCharger,driver);
+        waitFor(2);
+        clickOn(macBookCharger);
+        log.info("The selected product details page opened Successfully");
+    }
+
+    public void clickOnProductGallery(WebDriver driver) {
+        scrollToElement(productGallery,driver);
+        waitFor(2);
+        clickOn(productGallery);
+        log.info("The product Gallery opened Successfully");
+    }
+
+    public void clickOnNextProductPicture(WebDriver driver) {
+        scrollToElement(nextProductPicture,driver);
+        waitFor(2);
+        clickOn(nextProductPicture);
+        log.info("Successfully clicked On Next Product Picture");
+    }
+
+    public String getProductPictureName(WebDriver driver) {
+        scrollToElement(productPictureName,driver);
+        waitFor(1);
+        String text = getElementText(productPictureName);
+        return text;
+    }
+
 
 
 }

@@ -16,7 +16,7 @@ public class LoginAndLogoutTest extends CommonAPI {
 // ***************( Test case for Login and logout as a Customer and Verify Redirect to My Account Page )**************
 // --------------------------------------------------------------------------------------------------------------------
 
-    @Test (priority = 2)
+    @Test (enabled = true,priority = 2, groups = {"Smoke"})
     public void loginAndLogoutAsCustomer() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());
@@ -58,7 +58,7 @@ public class LoginAndLogoutTest extends CommonAPI {
  //--------------------------------------------------------------------------------------------------------------------
 // ***************( Test case for Login and logout  as a vendor and Verify Redirect to Dashboard page )**************
 // --------------------------------------------------------------------------------------------------------------------
-    @Test (priority = 1)
+    @Test (enabled = true,priority = 1,groups = {"Smoke"})
     public void loginAndLogoutAsVendor() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());

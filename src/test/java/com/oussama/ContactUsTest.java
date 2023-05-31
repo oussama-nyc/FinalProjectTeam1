@@ -16,7 +16,7 @@ public class ContactUsTest extends CommonAPI {
     // ***************( Test case for Contact Us page )**************************************************
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test
+    @Test (enabled = true,groups = {"Sanity"})
     public void contactUs() {
         ContactUsPage contactUsPage = new ContactUsPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());

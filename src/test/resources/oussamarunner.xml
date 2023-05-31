@@ -10,8 +10,30 @@
     <parameter name="browserName" value="chrome"></parameter>
     <parameter name="url" value="https://www.oussama-achour.com/"></parameter>
 
-
     <test name="OUSSAMA TEST CASES ">
+        <groups>
+            <define name="OvernightTest">
+                <include name="Smoke"></include>
+                <include name="Sanity"></include>
+                <include name="Integration"></include>
+            </define>
+            <define name="DaytimeTes">
+                <include name="Smoke"></include>
+                <include name="Sanity"></include>
+                <include name="Integration"></include>
+            </define>
+
+            <run>
+                <include name="before"></include>
+                <include name="after"></include>
+                <include name="DaytimeTes"></include>
+                <include name="OvernightTest"></include>
+<!--                <exclude name="Integration"></exclude>-->
+<!--                <exclude name="Sanity"></exclude>-->
+<!--                <exclude name="Smoke"></exclude>-->
+
+            </run>
+        </groups>
         <classes>
             <class name="com.oussama.RegisterTest"></class>
             <class name="com.oussama.LoginAndLogoutTest"></class>
@@ -27,6 +49,15 @@
             <class name="com.oussama.CouponCodeTest"></class>
             <class name="com.oussama.ComparePageTest"></class>
             <class name="com.oussama.WishListPageTest"></class>
+            <class name="com.oussama.BillingShippingAddressesTest"></class>
+            <class name="com.oussama.DarkModeLightModeTest"></class>
+            <class name="com.oussama.PasswordChangeTest"></class>
+            <class name="com.oussama.SignUpToNewsletterTest"></class>
+            <class name="com.oussama.UpdateCartTest"></class>
+            <class name="com.oussama.ProductGalleryTest"></class>
+            <class name="com.oussama.PaymentMethodForVendorTest"></class>
+            <class name="com.oussama.PasswordRecoveryTest"></class>
+            <class name="com.oussama.HomePageSliderTest"></class>
         </classes>
     </test>
 </suite>

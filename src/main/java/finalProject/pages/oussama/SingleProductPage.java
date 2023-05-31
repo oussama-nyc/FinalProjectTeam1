@@ -58,7 +58,6 @@ public class SingleProductPage extends CommonAPI {
     WebElement viewCartButton;
 
 
-
     //----------------------------------------------------------------------------------------------------------------
     // ****************************************( Reusable Methods )***************************************************
     // ---------------------------------------------------------------------------------------------------------------
@@ -135,6 +134,16 @@ public class SingleProductPage extends CommonAPI {
     public void clickOnViewCartButton() {
         clickOn(viewCartButton);
         log.info("The cart page is displayed successfully");
+    }
+
+    public String getSecondSliderProductTitle() {
+        String text = getElementText(productTitle);
+        return text;
+    }
+
+    public String getThirdSliderProductTitle() {
+        String text = getElementText(productTitle);
+        return text;
     }
 
 }

@@ -16,7 +16,7 @@ public class PasswordStrengthValidation extends CommonAPI {
 //**************************************( Test case for password strength validation )********************************
 // -------------------------------------------------------------------------------------------------------------------
 
-    @Test
+    @Test (enabled = true,groups = {"Integration"})
     public void passwordStrengthValidation()  {
 
         String expectedTitle = "Welcome to Worldwide Electronics Store";
