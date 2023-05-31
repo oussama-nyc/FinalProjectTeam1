@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage extends CommonAPI{
+public class HomePage extends CommonAPI {
     Logger LOG = LogManager.getLogger(HomePage.class.getName());
 
     public HomePage(WebDriver driver){
@@ -30,6 +30,27 @@ public class HomePage extends CommonAPI{
 
     @FindBy(xpath = "//a[@id='ui-id-3']")
     WebElement whatsNewMenuItem;
+
+    @FindBy(id = "newsletter")
+    WebElement inputSubscribe;
+
+    @FindBy(xpath = "//button[@class='action subscribe primary']")
+    WebElement subscribeButton;
+
+    @FindBy(xpath = "//div[@class='page messages']")
+    WebElement subscribeMsg;
+
+    @FindBy(xpath = "//div[@class='mage-error']")
+    WebElement invalidEmailMsg;
+
+    @FindBy(id = "toolbar-amount")
+    WebElement itemResult;
+
+    @FindBy(xpath = "//div[@class='message notice']")
+    WebElement noResultMsg;
+
+    @FindBy(linkText = "Contact Us")
+    WebElement contactUsLink;
 
 
 //    @FindBy(xpath = "//span[contains(text(), 'Jackets')]")
@@ -75,4 +96,38 @@ public class HomePage extends CommonAPI{
     public void clickOnWhatsNewMenuItem(){
         clickOn(whatsNewMenuItem);
     }
+    public void setInputSubscribe(String email){
+        type(inputSubscribe,email);
+        LOG.info("item type success");
+    }
+    public void clickOnSubscribe(){
+        clickOn(subscribeButton);
+    }
+    public String getSubscribeMsg() throws InterruptedException {
+        Thread.sleep(3000);
+        return getElementText(subscribeMsg);
+    }
+
+    public String getInvalidEmailMsg() throws InterruptedException {
+        Thread.sleep(2000);
+        return getElementText(invalidEmailMsg);
+    }
+
+    public boolean isVisibleResult() throws InterruptedException {
+        Thread.sleep(2000);
+        return itemResult.isDisplayed();
+    }
+
+    public String getNoResultMsg() throws InterruptedException {
+        Thread.sleep(1000);
+        return getElementText(noResultMsg);
+    }
+    public void clickOnContactUs(){
+        clickOn(contactUsLink);
+    }
+
+
+
+
+
 }

@@ -12,10 +12,17 @@
 
     <test name="AghelesTest ">
         <classes>
-<!--            <class name="com.scaledupit.RegisterTest"></class>-->
-<!--            <class name="com.scaledupit.AddProductToCartTest"></class>-->
-<!--            <class name="com.scaledupit.ProductSearchTest"></class>-->
-                 <class name="com.scaledupit.DeleteItemTest"></class>
+          <class name="com.scaledupit.RegisterTest"></class>
+       <class name="com.scaledupit.AddProductToCartTest"></class>
+            <class name="com.scaledupit.ProductSearchTest"></class>
+             <class name="com.scaledupit.DeleteItemTest"></class>
+              <class name="com.scaledupit.DefaultSortingTest"></class>
+            <class name="com.scaledupit.ConnectToSocialMediaTest"></class>
+            <class name="com.scaledupit.AddItemsTest"></class>
+            <class name="com.scaledupit.ShoppingCategoriesTest"></class>
+            <class name="com.scaledupit.ShoppingMenuTest"></class>
+
+
         </classes>
     </test>
 </suite>
