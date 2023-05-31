@@ -16,7 +16,7 @@ public class ProductReviewsAndRatingsTest extends CommonAPI {
     // ************************************( Test Product Reviews And Ratings )***************************************************
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test
+    @Test (enabled = true,groups = {"Integration"})
     public void ProductReviewsAndRatings() {
         HeaderPage headerPage = new HeaderPage(getDriver());
         ShopPage shopPage = new ShopPage(getDriver());

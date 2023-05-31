@@ -16,7 +16,7 @@ public class AddNewProductTest extends CommonAPI {
     // ******************************( Test case for Add New Product to sell )*****************************************
     // ----------------------------------------------------------------------------------------------------------------
 
-    @Test
+    @Test (enabled = true,groups = {"Smoke"})
     public void addNewProduct() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());
@@ -33,7 +33,7 @@ public class AddNewProductTest extends CommonAPI {
         myAccountPage.enterValidEmailLoginVendor2();
 
         //Enter a valid Password in the " Password " field
-        myAccountPage.enterValidPasswordLoginVendor();
+        myAccountPage.enterValidPasswordLoginVendor2();
 
         //Click on the " Login " button to submit the form.
         myAccountPage.clickOnLoginButton(getDriver());

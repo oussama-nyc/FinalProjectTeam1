@@ -14,7 +14,7 @@ public class ContactStoreVendorTest extends CommonAPI {
     // ************************************( Test Contact Store Vendor )***************************************************
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test
+    @Test (enabled = true,groups = {"Integration"})
     public void ContactStoreVendor() {
         HeaderPage headerPage = new HeaderPage(getDriver());
         StoreListingPage storeListingPage = new StoreListingPage(getDriver());

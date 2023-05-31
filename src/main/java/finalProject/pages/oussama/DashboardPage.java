@@ -1,5 +1,6 @@
 package finalProject.pages.oussama;
 
+import com.github.javafaker.Faker;
 import finalProject.base.CommonAPI;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -93,6 +94,30 @@ public class DashboardPage extends CommonAPI {
     @FindBy(css = ".product_title.entry-title")
     WebElement NewProductTitle;
 
+    @FindBy(xpath = "//a[normalize-space()='Settings']")
+    WebElement settingsButton;
+
+    @FindBy(xpath = "//a[normalize-space()='Payment']")
+    WebElement paymentButton;
+
+    @FindBy(css = "#toggle-vendor-payment-method-drop-down")
+    WebElement paymentMethodDropDown;
+
+    @FindBy(xpath = "//span[normalize-space()='Direct to PayPal']")
+    WebElement directToPayPal;
+
+    @FindBy(css = "input[placeholder='you@domain.com']")
+    WebElement payPalEmailField;
+
+    @FindBy(css = "input[value='Update Settings']")
+    WebElement updateSettingsButton;
+
+    @FindBy(css = "div[class='dokan-alert dokan-alert-success'] p")
+    WebElement paymentMethodAlertSuccessMessage;
+
+
+
+
     //----------------------------------------------------------------------------------------------------------------
     // ****************************************( Reusable Methods )***************************************************
     // ---------------------------------------------------------------------------------------------------------------
@@ -134,7 +159,6 @@ public class DashboardPage extends CommonAPI {
         clickOn(thumbnailImage);
         clickOn(SetFeaturedImageButton);
         log.info("The Product pictures uploaded successfully.");
-
     }
 
     public void selectCategory(WebDriver driver) {
@@ -171,4 +195,42 @@ public class DashboardPage extends CommonAPI {
         return text;
     }
 
+    public void clickOnPaymentMethods(WebDriver driver){
+        hoverOver(settingsButton,driver);
+        waitFor(2);
+        clickOn(paymentButton);
+        log.info("Payment Methods Page open successfully");
+    }
+
+    public void clickOnAddPaymentMethods(WebDriver driver){
+        hoverOver(paymentMethodDropDown,driver);
+        waitFor(2);
+        clickOn(directToPayPal);
+        log.info("Payment Methods selected successfully");
+    }
+
+    Faker faker = new Faker();
+    public String fakeEmailAddress() {
+        return faker.internet().emailAddress();
+    }
+
+    public void enterValidPayPalEmail(WebDriver driver) {
+        scrollToElement(payPalEmailField,driver);
+        waitFor(1);
+        clear(payPalEmailField);
+        type(payPalEmailField,fakeEmailAddress());
+        log.info("Successfully entered PayPal Email");
+    }
+
+    public void clickOnUpdateSettingsButton(WebDriver driver) {
+        scrollToElement(updateSettingsButton,driver);
+        waitFor(1);
+        clickOn(updateSettingsButton);
+        log.info("Successfully clicked On Update Settings Button");
+    }
+
+    public String getPaymentMethodAlertSuccessMessage() {
+        String text = getElementText(paymentMethodAlertSuccessMessage);
+        return text;
+    }
 }

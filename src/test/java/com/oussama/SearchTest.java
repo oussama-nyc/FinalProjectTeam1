@@ -16,7 +16,7 @@ public class SearchTest extends CommonAPI {
     // ************************************( Test case for search feature )**************************************************
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test
+    @Test (enabled = true,groups = {"Smoke"})
     public void searchFeature() {
         HeaderPage headerPage = new HeaderPage(getDriver());
         SingleProductPage singleProductPage = new SingleProductPage(getDriver());

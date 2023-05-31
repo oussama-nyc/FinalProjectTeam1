@@ -17,7 +17,7 @@ public class FilterTest extends CommonAPI {
     // ***********************************( Test case for filter feature )**************************************************
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test
+    @Test (enabled = true,groups = {"Integration"})
     public void filterFeature() {
         HeaderPage headerPage = new HeaderPage(getDriver());
         ShopPage shopPage = new ShopPage(getDriver());

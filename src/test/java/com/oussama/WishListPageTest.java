@@ -14,7 +14,7 @@ public class WishListPageTest extends CommonAPI {
     // *************************************( Test Wish List Page For Logged In Users )*******************************
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test (priority = 1)
+    @Test (enabled = true,priority = 1, groups = {"Sanity"})
     public void wishListPageForLoggedInUsers() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());
@@ -82,7 +82,7 @@ public class WishListPageTest extends CommonAPI {
         Assert.assertEquals(actualProduct2,expectedProduct2);
 
         //Remove the products from the wishlist page
-        wishListPage.clickOnToRemoveProductFromTheWishListPage();
+        wishListPage.clickOnToRemoveProductFromTheWishListPage(getDriver());
 
         //Verify that the 1st Product successfully removed
         String expectedRemovedProductText1 = "Product successfully removed.";
@@ -92,6 +92,8 @@ public class WishListPageTest extends CommonAPI {
         waitFor(3);
 
         wishListPage.clickOnToRemoveSecondProductFromTheWishListPage(getDriver());
+
+        waitFor(2);
 
         //Verify that the 2nd Product successfully removed
         String expectedRemovedProductText2 = "Product successfully removed.";
@@ -110,7 +112,7 @@ public class WishListPageTest extends CommonAPI {
     // ***********************************( Test Wish List Page For Guest Users )*************************************
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test (priority = 2)
+    @Test (enabled = true,priority = 2, groups = {"Sanity"})
     public void wishListPageForGuestUsers() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());
@@ -161,7 +163,7 @@ public class WishListPageTest extends CommonAPI {
         Assert.assertEquals(actualProduct2,expectedProduct2);
 
         //Remove the products from the wishlist page
-        wishListPage.clickOnToRemoveProductFromTheWishListPage();
+        wishListPage.clickOnToRemoveProductFromTheWishListPage(getDriver());
 
         //Verify that the 1st Product successfully removed
         String expectedRemovedProductText1 = "Product successfully removed.";
@@ -171,6 +173,8 @@ public class WishListPageTest extends CommonAPI {
         waitFor(2);
 
         wishListPage.clickOnToRemoveSecondProductFromTheWishListPage(getDriver());
+
+        waitFor(2);
 
         //Verify that the 1st Product successfully removed
         String expectedRemovedProductText2 = "Product successfully removed.";
@@ -189,7 +193,7 @@ public class WishListPageTest extends CommonAPI {
     // ***************( Test Case For Adding Wishlist Items To The Cart )*********
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test (priority = 3)
+    @Test (enabled = true,priority = 3, groups = {"Sanity"})
     public void addingWishlistItemsToTheCart() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());

@@ -17,7 +17,7 @@ public class ComparePageTest extends CommonAPI {
     // ***************( Test case for Compare Page For Logged In Users )*********
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test (priority = 1)
+    @Test (enabled = true,priority = 1,groups = {"Integration"})
     public void comparePageForLoggedInUsers() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());
@@ -106,7 +106,7 @@ public class ComparePageTest extends CommonAPI {
     // ***************( Test case for Compare Page For Guest Users )*********
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test (priority = 2)
+    @Test (enabled = true,priority = 2, groups = {"Integration"})
     public void comparePageForGuestUsers() {
         HeaderPage headerPage = new HeaderPage(getDriver());
         ComparePage comparePage = new ComparePage(getDriver());

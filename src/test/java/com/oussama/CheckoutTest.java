@@ -16,7 +16,7 @@ public class CheckoutTest extends CommonAPI {
     // ***************( Test case for Checkout For Logged In Users )**************************************************
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test
+    @Test (enabled = true,groups = {"Smoke"})
     public void checkoutForLoggedInUsers() {
         MyAccountPage myAccountPage = new MyAccountPage(getDriver());
         HeaderPage headerPage = new HeaderPage(getDriver());
@@ -126,7 +126,7 @@ public class CheckoutTest extends CommonAPI {
     // ***************************( Test case for Checkout For Guest Users )****************************************
     // ---------------------------------------------------------------------------------------------------------------
 
-    @Test (dataProvider = "checkoutForGuestUsers",dataProviderClass = ExcelReader.class )
+    @Test (enabled = true, dataProvider = "checkoutForGuestUsers",dataProviderClass = ExcelReader.class ,groups = {"Smoke"})
     public void checkoutForGuestUsers(String firstName,String lastName,String country,String streetAddress,String apt,String town,String state,String zipCode,String phoneNumber,String email) {
       HeaderPage headerPage = new HeaderPage(getDriver());
       ShopPage shopPage = new ShopPage(getDriver());
